@@ -1,0 +1,102 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge foundations">Phase 1</span>
+        <h1>Comparison Operators</h1>
+        <p class="topic-description">Equality, inequality, greater/less than.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Comparison Operators</h2>
+        <p>This operator compares two values and always returns a boolean value</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Equality - always use ===(its predictable and safer)</h2>
+
+        <h3>== (Loose Equality)</h3>
+        <p>Does Type Coercion - tries to convert types to match before comparing</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">loose-equality.js</span>
+            </div>
+            <pre><code>console.log("5" == 5);      // true - Is the string "5" equal to the number 5? JS says "Close enough"</code></pre>
+        </div>
+
+        <h3>=== (Strict Equality)</h3>
+        <p>Does not do type coercion - it checks both value and type</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">strict-equality.js</span>
+            </div>
+            <pre><code>console.log("5" === 5);     // false - Is the string "5" equal to the number 5? JS says "No, one is text, one is a number"</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Inequality</h2>
+
+        <h3>!= (Loose Inequality)</h3>
+        <p>Convert types then checks</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">loose-inequality.js</span>
+            </div>
+            <pre><code>console.log("5" != 5);      // false (Because it thinks they are equal)</code></pre>
+        </div>
+
+        <h3>!== (Strict Inequality)</h3>
+        <p>Checks values and type</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">strict-inequality.js</span>
+            </div>
+            <pre><code>console.log("5" !== 5);     // true (Correct! They are different types)</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Greater/Less than</h2>
+        <p>This works like normal maths</p>
+        <ul>
+            <li>&gt; (Greater than)</li>
+            <li>&lt; (Less than)</li>
+            <li>&gt;= (Greater than or equal to)</li>
+            <li>&lt;= (Less than or equal to)</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">greater-less.js</span>
+            </div>
+            <pre><code>const age = 18;
+if (age >= 18) {
+    console.log("You can vote.");
+}</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/1-foundations/basic-operators" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Basic Operators</span>
+        </a>
+        <a href="#/1-foundations/logical-operators" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Logical Operators</span>
+        </a>
+    </nav>
+</article>

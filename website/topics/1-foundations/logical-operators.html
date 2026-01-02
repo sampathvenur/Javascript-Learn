@@ -1,0 +1,104 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge foundations">Phase 1</span>
+        <h1>Logical Operators</h1>
+        <p class="topic-description">AND, OR, NOT, Short-circuiting.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Logical Operators</h2>
+        <p>These operators are used to combine multiple conditions.</p>
+        <p>They are fundamental for decision making in logic.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. &amp;&amp; (AND) - Returns true only if BOTH sides are true.</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">and-operator.js</span>
+            </div>
+            <pre><code>const hasLicence = true;
+const hasCar = true;
+console.log(hasLicence && hasCar); // true</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. || (OR) - Returns true if AT LEAST ONE side is true.</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">or-operator.js</span>
+            </div>
+            <pre><code>const isSaturday = false;
+const isSunday = true;
+console.log(isSaturday || isSunday); // true</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. ! (NOT) - Returns the boolean value. True becomes False, False becomes True.</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">not-operator.js</span>
+            </div>
+            <pre><code>const isTired = false;
+console.log(!isTired); // true</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Short - Circuiting</h2>
+        <p>Javascript is lazy.</p>
+        <p>It evaluates expressions from left to right and stops as soon as the result is guaranteed.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">short-circuiting.js</span>
+            </div>
+            <pre><code>// AND (&&) - if the first value is false, JS stops immediately
+false && console.log("This will not run");  // The log never happens
+
+// OR (||) - if the first value is true, JS stops immediately
+true || console.log("This will not run");  // The log never happens</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Real - world use case</h2>
+        <p>Developers often use || to set default values.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">default-values.js</span>
+            </div>
+            <pre><code>let userParams = null;
+// If userParams is null(falsy), use "Default Value"
+let finalValue = userParams || "Default Value";
+console.log(finalValue);    // "Default Value"</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/1-foundations/comparison-operators" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Comparison Operators</span>
+        </a>
+        <a href="#/1-foundations/string-manipulation" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">String Manipulation</span>
+        </a>
+    </nav>
+</article>

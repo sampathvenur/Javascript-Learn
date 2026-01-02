@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive JavaScript documentation and notes with syntax-highlighted code examples covering fundamentals to advanced concepts.">
+    <title>JavaScript Notes | Complete Documentation</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/code-block.css">
+    <link rel="stylesheet" href="styles/components/topic-card.css">
+    <link rel="stylesheet" href="styles/components/content.css">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header" id="mobile-header">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <h1 class="mobile-title">JS Notes</h1>
+    </header>
+
+    <!-- Sidebar Overlay (Mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">{ }</span>
+                <span class="logo-text">JavaScript Notes</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav" id="sidebar-nav">
+            <!-- Phase 1: Foundations -->
+            <div class="nav-phase" data-phase="1">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge foundations">1</span>
+                    <span class="phase-title">Foundations</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/1-foundations/how-javascript-works" data-topic="how-javascript-works">How JavaScript Works</a></li>
+                    <li><a href="#/1-foundations/linking-js" data-topic="linking-js">Linking JS</a></li>
+                    <li><a href="#/1-foundations/variables" data-topic="variables">Variables</a></li>
+                    <li><a href="#/1-foundations/data-types" data-topic="data-types">Data Types</a></li>
+                    <li><a href="#/1-foundations/type-coercion" data-topic="type-coercion">Type Coercion</a></li>
+                    <li><a href="#/1-foundations/basic-operators" data-topic="basic-operators">Basic Operators</a></li>
+                    <li><a href="#/1-foundations/comparison-operators" data-topic="comparison-operators">Comparison Operators</a></li>
+                    <li><a href="#/1-foundations/logical-operators" data-topic="logical-operators">Logical Operators</a></li>
+                    <li><a href="#/1-foundations/string-manipulation" data-topic="string-manipulation">String Manipulation</a></li>
+                </ul>
+            </div>
+
+            <!-- Phase 2: Control Flow -->
+            <div class="nav-phase" data-phase="2">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge control-flow">2</span>
+                    <span class="phase-title">Control Flow</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/2-control-flow/conditional-statements" data-topic="conditional-statements">Conditional Statements</a></li>
+                    <li><a href="#/2-control-flow/switch-statements" data-topic="switch-statements">Switch Statements</a></li>
+                    <li><a href="#/2-control-flow/ternary-operator" data-topic="ternary-operator">Ternary Operator</a></li>
+                    <li><a href="#/2-control-flow/loops" data-topic="loops">Loops</a></li>
+                </ul>
+            </div>
+
+            <!-- Phase 3: Functions -->
+            <div class="nav-phase" data-phase="3">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge functions">3</span>
+                    <span class="phase-title">Functions</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/3-functions/function-basics" data-topic="function-basics">Function Basics</a></li>
+                    <li><a href="#/3-functions/params-arguments" data-topic="params-arguments">Params & Arguments</a></li>
+                    <li><a href="#/3-functions/arrow-functions" data-topic="arrow-functions">Arrow Functions</a></li>
+                    <li><a href="#/3-functions/scope" data-topic="scope">Scope</a></li>
+                    <li><a href="#/3-functions/hoisting" data-topic="hoisting">Hoisting</a></li>
+                    <li><a href="#/3-functions/closures" data-topic="closures">Closures</a></li>
+                    <li><a href="#/3-functions/iife" data-topic="iife">IIFE</a></li>
+                    <li><a href="#/3-functions/recursion" data-topic="recursion">Recursion</a></li>
+                </ul>
+            </div>
+
+            <!-- Phase 4: Data Structures -->
+            <div class="nav-phase" data-phase="4">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge data-structures">4</span>
+                    <span class="phase-title">Data Structures</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/4-data-structures/arrays-basics" data-topic="arrays-basics">Arrays Basics</a></li>
+                    <li><a href="#/4-data-structures/array-iteration" data-topic="array-iteration">Array Iteration</a></li>
+                    <li><a href="#/4-data-structures/array-transformation" data-topic="array-transformation">Array Transformation</a></li>
+                    <li><a href="#/4-data-structures/array-searching" data-topic="array-searching">Array Searching</a></li>
+                    <li><a href="#/4-data-structures/array-sorting" data-topic="array-sorting">Array Sorting</a></li>
+                    <li><a href="#/4-data-structures/objects-basics" data-topic="objects-basics">Objects Basics</a></li>
+                    <li><a href="#/4-data-structures/this-keyword" data-topic="this-keyword">The 'this' Keyword</a></li>
+                    <li><a href="#/4-data-structures/object-referencing" data-topic="object-referencing">Object Referencing</a></li>
+                    <li><a href="#/4-data-structures/object-utilities" data-topic="object-utilities">Object Utilities</a></li>
+                    <li><a href="#/4-data-structures/es6-destructuring" data-topic="es6-destructuring">ES6 Destructuring</a></li>
+                    <li><a href="#/4-data-structures/spread-rest" data-topic="spread-rest">Spread & Rest</a></li>
+                    <li><a href="#/4-data-structures/optional-chaining" data-topic="optional-chaining">Optional Chaining</a></li>
+                    <li><a href="#/4-data-structures/nullish-coalescing" data-topic="nullish-coalescing">Nullish Coalescing</a></li>
+                </ul>
+            </div>
+
+            <!-- Phase 5: The DOM -->
+            <div class="nav-phase" data-phase="5">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge the-dom">5</span>
+                    <span class="phase-title">The DOM</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/5-the-dom/selectors" data-topic="selectors">Selectors</a></li>
+                    <li><a href="#/5-the-dom/manipulation" data-topic="manipulation">Manipulation</a></li>
+                    <li><a href="#/5-the-dom/traversing" data-topic="traversing">Traversing</a></li>
+                    <li><a href="#/5-the-dom/events-basics" data-topic="events-basics">Events Basics</a></li>
+                    <li><a href="#/5-the-dom/event-propagation" data-topic="event-propagation">Event Propagation</a></li>
+                    <li><a href="#/5-the-dom/event-delegation" data-topic="event-delegation">Event Delegation</a></li>
+                </ul>
+            </div>
+
+            <!-- Phase 6: OOP -->
+            <div class="nav-phase" data-phase="6">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge oop">6</span>
+                    <span class="phase-title">OOP</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/6-oop/prototypes" data-topic="prototypes">Prototypes</a></li>
+                    <li><a href="#/6-oop/classes" data-topic="classes">Classes</a></li>
+                    <li><a href="#/6-oop/inheritance" data-topic="inheritance">Inheritance</a></li>
+                    <li><a href="#/6-oop/advanced-this" data-topic="advanced-this">Advanced 'this'</a></li>
+                    <li><a href="#/6-oop/accessors" data-topic="accessors">Accessors</a></li>
+                </ul>
+            </div>
+
+            <!-- Phase 7: Async JS -->
+            <div class="nav-phase" data-phase="7">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge async-js">7</span>
+                    <span class="phase-title">Async JS</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/7-async-js/sync-vs-async" data-topic="sync-vs-async">Sync vs Async</a></li>
+                    <li><a href="#/7-async-js/callbacks" data-topic="callbacks">Callbacks</a></li>
+                    <li><a href="#/7-async-js/promises" data-topic="promises">Promises</a></li>
+                    <li><a href="#/7-async-js/async-await" data-topic="async-await">Async/Await</a></li>
+                    <li><a href="#/7-async-js/event-loop" data-topic="event-loop">Event Loop</a></li>
+                    <li><a href="#/7-async-js/ajax-fetch" data-topic="ajax-fetch">AJAX & Fetch</a></li>
+                </ul>
+            </div>
+
+            <!-- Phase 8: Advanced -->
+            <div class="nav-phase" data-phase="8">
+                <button class="phase-toggle" aria-expanded="false">
+                    <span class="phase-badge advanced">8</span>
+                    <span class="phase-title">Advanced</span>
+                    <span class="phase-arrow">▸</span>
+                </button>
+                <ul class="phase-topics">
+                    <li><a href="#/8-advanced/modules" data-topic="modules">Modules</a></li>
+                    <li><a href="#/8-advanced/storage" data-topic="storage">Storage</a></li>
+                    <li><a href="#/8-advanced/error-handling" data-topic="error-handling">Error Handling</a></li>
+                    <li><a href="#/8-advanced/regex" data-topic="regex">Regex</a></li>
+                    <li><a href="#/8-advanced/memory-management" data-topic="memory-management">Memory Management</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="copyright">© 2026 JavaScript Notes</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
+        <!-- Home/Welcome Screen -->
+        <div class="home-screen" id="home-screen">
+            <div class="home-hero">
+                <div class="hero-icon">{ }</div>
+                <h1 class="hero-title">JavaScript Notes</h1>
+                <p class="hero-subtitle">Your comprehensive guide to mastering JavaScript</p>
+            </div>
+
+            <div class="phase-cards">
+                <div class="phase-card" data-phase="1">
+                    <div class="card-header foundations">
+                        <span class="card-number">01</span>
+                        <h3 class="card-title">Foundations</h3>
+                    </div>
+                    <p class="card-description">Variables, Data Types, Operators, and the basics of how JavaScript works.</p>
+                    <span class="card-topics">9 Topics</span>
+                </div>
+
+                <div class="phase-card" data-phase="2">
+                    <div class="card-header control-flow">
+                        <span class="card-number">02</span>
+                        <h3 class="card-title">Control Flow</h3>
+                    </div>
+                    <p class="card-description">Conditionals, Switch statements, Ternary operators, and Loops.</p>
+                    <span class="card-topics">4 Topics</span>
+                </div>
+
+                <div class="phase-card" data-phase="3">
+                    <div class="card-header functions">
+                        <span class="card-number">03</span>
+                        <h3 class="card-title">Functions</h3>
+                    </div>
+                    <p class="card-description">Function declarations, Arrow functions, Scope, Closures, and more.</p>
+                    <span class="card-topics">8 Topics</span>
+                </div>
+
+                <div class="phase-card" data-phase="4">
+                    <div class="card-header data-structures">
+                        <span class="card-number">04</span>
+                        <h3 class="card-title">Data Structures</h3>
+                    </div>
+                    <p class="card-description">Arrays, Objects, Destructuring, Spread/Rest, and modern ES6+ features.</p>
+                    <span class="card-topics">13 Topics</span>
+                </div>
+
+                <div class="phase-card" data-phase="5">
+                    <div class="card-header the-dom">
+                        <span class="card-number">05</span>
+                        <h3 class="card-title">The DOM</h3>
+                    </div>
+                    <p class="card-description">Selectors, Manipulation, Traversal, Events, and Event Delegation.</p>
+                    <span class="card-topics">6 Topics</span>
+                </div>
+
+                <div class="phase-card" data-phase="6">
+                    <div class="card-header oop">
+                        <span class="card-number">06</span>
+                        <h3 class="card-title">OOP</h3>
+                    </div>
+                    <p class="card-description">Prototypes, Classes, Inheritance, and Object-Oriented patterns.</p>
+                    <span class="card-topics">5 Topics</span>
+                </div>
+
+                <div class="phase-card" data-phase="7">
+                    <div class="card-header async-js">
+                        <span class="card-number">07</span>
+                        <h3 class="card-title">Async JS</h3>
+                    </div>
+                    <p class="card-description">Callbacks, Promises, Async/Await, Event Loop, and Fetch API.</p>
+                    <span class="card-topics">6 Topics</span>
+                </div>
+
+                <div class="phase-card" data-phase="8">
+                    <div class="card-header advanced">
+                        <span class="card-number">08</span>
+                        <h3 class="card-title">Advanced</h3>
+                    </div>
+                    <p class="card-description">Modules, Storage, Error Handling, Regex, and Memory Management.</p>
+                    <span class="card-topics">5 Topics</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic Content Container (populated by router) -->
+        <div class="topic-container" id="topic-container" style="display: none;">
+            <!-- Content loaded dynamically -->
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-state" id="loading-state" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Loading content...</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="error-state" id="error-state" style="display: none;">
+            <div class="error-icon">⚠️</div>
+            <h2>Topic Not Found</h2>
+            <p>The requested topic could not be loaded.</p>
+            <a href="#/" class="btn-home">Back to Home</a>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/modules/syntax-highlighter.js"></script>
+    <script src="scripts/modules/navigation.js"></script>
+    <script src="scripts/modules/router.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

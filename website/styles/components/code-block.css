@@ -1,0 +1,323 @@
+/* ========================================
+   CODE BLOCK COMPONENT STYLES
+   VS Code Dark Theme Syntax Highlighting
+   ======================================== */
+
+/* ----------------------------------------
+   CODE CONTAINER
+   ---------------------------------------- */
+.code-container {
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    margin: var(--space-6) 0;
+}
+
+
+/* ----------------------------------------
+   CODE HEADER (Window Bar Style)
+   ---------------------------------------- */
+.code-header {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    padding: var(--space-2) var(--space-4);
+    border-bottom: 1px solid var(--border-color);
+    gap: var(--space-2);
+}
+
+/* Traffic Light Dots */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.red {
+    background-color: #ff5f56;
+}
+
+.dot.yellow {
+    background-color: #ffbd2e;
+}
+
+.dot.green {
+    background-color: #27c93f;
+}
+
+/* Filename */
+.code-header .filename {
+    margin-left: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+/* Language Badge */
+.code-header .language-badge {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    background-color: var(--bg-tertiary);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+}
+
+
+/* ----------------------------------------
+   CODE AREA
+   ---------------------------------------- */
+.code-container pre {
+    margin: 0;
+    padding: var(--space-5);
+    overflow-x: auto;
+    background-color: var(--bg-primary);
+}
+
+.code-container code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: none;
+    padding: 0;
+}
+
+
+/* ----------------------------------------
+   SYNTAX HIGHLIGHTING TOKENS
+   Based on VS Code Dark+ Theme
+   ---------------------------------------- */
+
+/* Comments - Green, Italic */
+.token-comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+/* Strings - Orange */
+.token-string {
+    color: #ce9178;
+}
+
+/* Numbers - Light Green */
+.token-number {
+    color: #b5cea8;
+}
+
+/* Keywords - Blue */
+.token-keyword {
+    color: #569cd6;
+}
+
+/* Functions - Yellow */
+.token-function {
+    color: #dcdcaa;
+}
+
+/* Variables & Identifiers - Light Blue */
+.token-variable {
+    color: #9cdcfe;
+}
+
+/* Operators - Gray */
+.token-operator {
+    color: #d4d4d4;
+}
+
+/* Punctuation - Gray */
+.token-punctuation {
+    color: #d4d4d4;
+}
+
+/* Boolean & Null - Blue */
+.token-boolean,
+.token-null {
+    color: #569cd6;
+}
+
+/* Class Names - Cyan */
+.token-class-name {
+    color: #4ec9b0;
+}
+
+/* Regex - Light Red */
+.token-regex {
+    color: #d16969;
+}
+
+
+/* ----------------------------------------
+   HTML SYNTAX TOKENS
+   ---------------------------------------- */
+
+/* Tags - Blue */
+.token-tag {
+    color: #569cd6;
+}
+
+/* Attribute Names - Light Blue */
+.token-attr-name {
+    color: #9cdcfe;
+}
+
+/* Attribute Values - Orange */
+.token-attr-value {
+    color: #ce9178;
+}
+
+/* DOCTYPE & Special Tags */
+.token-doctype {
+    color: #808080;
+}
+
+
+/* ----------------------------------------
+   CSS SYNTAX TOKENS
+   ---------------------------------------- */
+
+/* Selectors - Yellow */
+.token-selector {
+    color: #d7ba7d;
+}
+
+/* Property Names - Light Blue */
+.token-property {
+    color: #9cdcfe;
+}
+
+/* Property Values - Orange */
+.token-value {
+    color: #ce9178;
+}
+
+/* Units - Light Green */
+.token-unit {
+    color: #b5cea8;
+}
+
+/* Important - Purple */
+.token-important {
+    color: #c586c0;
+}
+
+
+/* ----------------------------------------
+   LINE NUMBERS (Optional)
+   ---------------------------------------- */
+.code-container.with-line-numbers pre {
+    padding-left: 0;
+}
+
+.line-numbers {
+    display: inline-block;
+    width: 50px;
+    padding: var(--space-5) var(--space-3);
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    text-align: right;
+    user-select: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    vertical-align: top;
+}
+
+.line-numbers span {
+    display: block;
+}
+
+
+/* ----------------------------------------
+   COPY BUTTON
+   ---------------------------------------- */
+.copy-btn {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    background-color: var(--bg-tertiary);
+    border-radius: var(--border-radius-sm);
+    opacity: 0;
+    transition: opacity var(--transition-fast), background-color var(--transition-fast);
+}
+
+.code-container:hover .copy-btn {
+    opacity: 1;
+}
+
+.copy-btn:hover {
+    background-color: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+.copy-btn.copied {
+    color: var(--accent-green);
+}
+
+
+/* ----------------------------------------
+   CODE CONTAINER VARIANTS
+   ---------------------------------------- */
+
+/* Inline Code Snippet */
+.code-inline {
+    display: inline-block;
+    background-color: var(--bg-tertiary);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent-orange);
+}
+
+/* Output/Result Block */
+.code-output {
+    background-color: #1a2a1a;
+    border-left: 3px solid var(--accent-green);
+}
+
+.code-output .code-header {
+    background-color: #1e2e1e;
+    color: var(--accent-green);
+}
+
+/* Error Output Block */
+.code-error {
+    background-color: #2a1a1a;
+    border-left: 3px solid var(--accent-red);
+}
+
+.code-error .code-header {
+    background-color: #2e1e1e;
+    color: var(--accent-red);
+}
+
+
+/* ----------------------------------------
+   RESPONSIVE ADJUSTMENTS
+   ---------------------------------------- */
+@media (max-width: 768px) {
+    .code-container pre {
+        padding: var(--space-4);
+    }
+
+    .code-container code {
+        font-size: var(--text-xs);
+    }
+
+    .code-header .filename {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

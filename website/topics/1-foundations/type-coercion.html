@@ -1,0 +1,103 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge foundations">Phase 1</span>
+        <h1>Type Coercion</h1>
+        <p class="topic-description">Implicit vs Explicit, Truthy and Falsy values.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Type Coercion</h2>
+        <p>Coercion is the process of converting a value from one type to another (e.g., String to Number).</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>Implicit Coercion (The Automatic Way)</h2>
+        <p>When the engine automatically converts one type to another.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">implicit-coercion.js</span>
+            </div>
+            <pre><code>// string wins(+) - if we use '+' operator, the number will be converted to string
+console.log("S" + 2); // output: "S2"
+
+// number wins(-, *, /) - if we use '-', '*', '/' operator, the string will be converted to number
+console.log("5" - 2); // output: 3
+console.log("S" - 2); // output: NaN</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Explicit Coercion (The Manual Way)</h2>
+        <p>When we manually convert one type to another.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">explicit-coercion.js</span>
+            </div>
+            <pre><code>// Number() function
+console.log(Number("123")); // output: 123
+
+// String() function
+console.log(String(123)); // output: "123"
+
+// Boolean() function
+console.log(Boolean(1)); // output: true</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Truthy vs. Falsy Values</h2>
+        <p>When you put a value into an if statement, JS converts it to a Boolean.</p>
+
+        <h3>Falsy Values:</h3>
+        <p>There are only 5 values (plus false itself) that become false. Memorize these:</p>
+        <ul>
+            <li>0</li>
+            <li>"" (Empty String)</li>
+            <li>undefined</li>
+            <li>null</li>
+            <li>NaN (Not a Number)</li>
+        </ul>
+
+        <h3>Truthy Values:</h3>
+        <p>Everything else.</p>
+        <ul>
+            <li>"Hello" (Non-empty string) -> true</li>
+            <li>123 (Number other than 0) -> true</li>
+            <li>{} (Empty Object) -> true</li>
+            <li>[] (Empty Array) -> true</li>
+        </ul>
+
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">truthy-falsy.js</span>
+            </div>
+            <pre><code>if ("0") { // "0" is coerced to true
+    console.log("This runs!");
+}
+
+if (0) { // 0 is coerced to false
+    console.log("This doesn't run.");
+}</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/1-foundations/data-types" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Data Types</span>
+        </a>
+        <a href="#/1-foundations/basic-operators" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Basic Operators</span>
+        </a>
+    </nav>
+</article>

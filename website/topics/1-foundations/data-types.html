@@ -1,0 +1,84 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge foundations">Phase 1</span>
+        <h1>Data Types</h1>
+        <p class="topic-description">String, Number, Boolean, Null, Undefined, Symbol, BigInt.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Data Types</h2>
+        <p>In Javascript "Primitive" is the data which is not an object and has no methods</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>7 Primitives</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">primitives.js</span>
+            </div>
+            <pre><code>// String: Text data. Wrapped in quotes.
+let name = "Gemini";
+let char = 'A';
+
+// Number: Floating point number.
+let age = 25;
+let price = 9999.99;
+
+// Boolean: True or false value.
+let isDone = true;
+let isReady = false;
+
+// Undefined: Variable declared, but no value assigned.
+let city;
+
+// Null: Explicitly set as no value.
+let state = null;
+
+// Symbol (ES6): Used to create unique identifiers for objects.
+let id = Symbol("id");
+
+// BigInt (ES11): Large integers (approx 9 quadrillion).
+let hugeNum = 9007199254740991n; // Notice the 'n' at the end
+// n stands for BigInt</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Null vs. Undefined (The Interview Favorite)</h2>
+        <ul>
+            <li><strong>Undefined:</strong> "I haven't set this yet." (The engine does this automatically).</li>
+            <li><strong>Null:</strong> "I am setting this to nothing." (You do this manually).</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Dynamic Typing</h2>
+        <p>JavaScript is dynamically typed. You don't tell the engine "this is a number." It figures it out. You can
+            also change a variable's type later (though you usually shouldn't).</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">dynamic-typing.js</span>
+            </div>
+            <pre><code>let data = 42;    // Now it's a Number
+data = "Hello";   // Now it's a String (Allowed, but careful)
+console.log(typeof(data)); // output: string</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/1-foundations/variables" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Variables</span>
+        </a>
+        <a href="#/1-foundations/type-coercion" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Type Coercion</span>
+        </a>
+    </nav>
+</article>

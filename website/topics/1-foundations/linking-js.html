@@ -1,0 +1,116 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge foundations">Phase 1</span>
+        <h1>Linking JavaScript</h1>
+        <p class="topic-description">Script tags, external files, defer and async attributes.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>3 Methods to Link JS</h2>
+        <ul>
+            <li><strong>1. Internal</strong> - within the html file</li>
+            <li><strong>2. External</strong> - in a separate file</li>
+            <li><strong>3. Inline</strong> - within the html file</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Inline</h2>
+        <div class="code-container" data-language="html">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">inline.html</span>
+            </div>
+            <pre><code>&lt;button onclick="alert('Hello')"&gt;Click me&lt;/button&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Internal</h2>
+        <div class="code-container" data-language="html">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">internal.html</span>
+            </div>
+            <pre><code>&lt;script&gt;
+    console.log('Hello');
+&lt;/script&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>External</h2>
+        <div class="code-container" data-language="html">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">external.html</span>
+            </div>
+            <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Script in Head Tag</h2>
+        <ul>
+            <li>If it is written inside head tag then browser reads html file from top to bottom</li>
+            <li>So it will start downloading and executing the js code, before displaying any html ui</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>The defer Attribute</h2>
+        <ul>
+            <li>Therefore we use defer attribute, which downloads the js code parallely as the html is parsed</li>
+            <li>And then execute the js only after full html is parsed</li>
+        </ul>
+        <div class="code-container" data-language="html">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">defer.html</span>
+            </div>
+            <pre><code>&lt;head&gt;
+    &lt;script src="script.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+        <p>We can also write the external js link after the body tag ends</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>Defer vs Async (Important)</h2>
+        <p>When you put scripts in the &lt;head&gt;, you should use one of these to prevent blocking the HTML.</p>
+
+        <h3>async:</h3>
+        <ul>
+            <li>Downloads during HTML parsing.</li>
+            <li>Pauses HTML parsing immediately to execute as soon as it's downloaded.</li>
+            <li>Use case: Analytics scripts (independent scripts that don't care about the DOM or order).</li>
+        </ul>
+
+        <h3>defer:</h3>
+        <ul>
+            <li>Downloads during HTML parsing.</li>
+            <li>Waits until the HTML is fully parsed to execute.</li>
+            <li>Respects order (script A runs before script B).</li>
+            <li>Use case: Everything else. This is your default.</li>
+        </ul>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/1-foundations/how-javascript-works" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">How JavaScript Works</span>
+        </a>
+        <a href="#/1-foundations/variables" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Variables</span>
+        </a>
+    </nav>
+</article>

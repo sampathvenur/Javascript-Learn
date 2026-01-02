@@ -1,0 +1,84 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge foundations">Phase 1</span>
+        <h1>Variables</h1>
+        <p class="topic-description">var vs let vs const, scope, and mutability.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Variables (var, let, const)</h2>
+        <p>Variables are containers for storing data(values)</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>var</h2>
+        <ul>
+            <li>It is old - it ignores block scopes - it can be redeclared</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>let</h2>
+        <ul>
+            <li>Introduced in ES6(2015) - it stays inside the braces {...} where it is defined - can be reassigned but
+                not redeclared</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>const</h2>
+        <ul>
+            <li>Introduced in ES6(2015) - it stays inside the braces {...} where it is defined - cannot be reassigned or
+                redeclared</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Block Scope</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">block-scope.js</span>
+            </div>
+            <pre><code>if (true) {
+    var oldVar = "I survive outside!";
+    let newLet = "I am trapped inside.";
+    const newConst = "I am also trapped.";
+}
+
+console.log(oldVar);   // Output: "I survive outside!" (Leaked out)
+console.log(newLet);   // Error: newLet is not defined
+console.log(newConst); // Error: newConst is not defined</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Reassignment</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">reassignment.js</span>
+            </div>
+            <pre><code>let score = 10;
+score = 20; // Allowed
+
+const pi = 3.14;
+pi = 3.14159; // Error: Assignment to constant variable.</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/1-foundations/linking-js" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Linking JS</span>
+        </a>
+        <a href="#/1-foundations/data-types" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Data Types</span>
+        </a>
+    </nav>
+</article>
