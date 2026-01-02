@@ -299,6 +299,24 @@
     border-top: 1px solid var(--border-color);
 }
 
+.developer {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0 0 var(--space-2) 0;
+}
+
+.developer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.developer a:hover {
+    color: var(--accent-light-blue);
+    text-decoration: underline;
+}
+
 .copyright {
     font-size: var(--text-xs);
     color: var(--text-muted);

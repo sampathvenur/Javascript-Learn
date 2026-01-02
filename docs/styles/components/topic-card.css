@@ -45,6 +45,24 @@
     margin: 0 auto;
 }
 
+.hero-author {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: var(--space-4) auto 0;
+}
+
+.hero-author a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.hero-author a:hover {
+    color: var(--accent-light-blue);
+    text-decoration: underline;
+}
+
 .phase-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
