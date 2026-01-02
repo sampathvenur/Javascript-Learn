@@ -1,0 +1,72 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge control-flow">Phase 2</span>
+        <h1>Ternary Operator</h1>
+        <p class="topic-description">Conditional one-liners with the ternary operator.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Ternary Operator</h2>
+        <p>Condition ? If true : If False</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>With if-else</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">if-else.js</span>
+            </div>
+            <pre><code>const age = 20;
+let message;
+
+if (age >= 18) {
+    message = "Adult";
+} else {
+    message = "Minor";
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>With ternary operator</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">ternary.js</span>
+            </div>
+            <pre><code>const age1 = 20;
+const message1 = age1 >= 18 ? "Adult" : "Minor";
+// Is age >= 18? If yes, "Adult". If no, "Minor".</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Warning</h2>
+        <p>Never nest the ternary operators, it becomes unreadable</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">nested-bad.js</span>
+            </div>
+            <pre><code>const item = isRaining ? "Umbrella" : isSunny ? "Sunglasses" : "Nothing";</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/2-control-flow/switch-statements" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Switch Statements</span>
+        </a>
+        <a href="#/2-control-flow/loops" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Loops</span>
+        </a>
+    </nav>
+</article>

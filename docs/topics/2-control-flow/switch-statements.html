@@ -1,0 +1,74 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge control-flow">Phase 2</span>
+        <h1>Switch Statements</h1>
+        <p class="topic-description">Syntax, break, and default cases.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Switch Statements</h2>
+        <p>The switch statement is an alternative to writing many else if blocks.</p>
+        <p>It is best used when you are checking one specific variable against many known values.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The Syntax</h2>
+        <ul>
+            <li><strong>case</strong> : The value you are checking for.</li>
+            <li><strong>break</strong> : Crucial. It tells JS to stop checking. If you forget this, JS will keep running
+                the code in the next case too (this is called "fall-through").</li>
+            <li><strong>default</strong> : Runs if none of the cases match (like the final else).</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">switch.js</span>
+            </div>
+            <pre><code>const day = "Monday";
+
+switch (day) {
+  case "Monday": // Does day === "Monday"?
+    console.log("Start of the work week.");
+    break; // STOP here.
+  case "Friday":
+    console.log("Weekend is coming!");
+    break;
+  case "Saturday":
+  case "Sunday": // You can stack cases
+    console.log("Enjoy the weekend.");
+    break;
+  default:
+    console.log("Just a regular day.");
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. When to use Switch vs If-Else?</h2>
+        <ul>
+            <li>Use <strong>switch</strong> when you have a single variable (e.g., userRole) and you want to check it
+                against specific values ('admin', 'editor', 'guest'). It looks cleaner.</li>
+            <li>Use <strong>if / else</strong> when you have ranges (e.g., age &lt; 18) or complex combinations (age
+                &gt; 18 &amp;&amp; hasLicense). Switch cannot handle ranges easily.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Important Note</h2>
+        <p>Switch uses Strict Equality (===).</p>
+        <p>If you switch on the string "5", case 5: (number) will not match.</p>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/2-control-flow/conditional-statements" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Conditional Statements</span>
+        </a>
+        <a href="#/2-control-flow/ternary-operator" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Ternary Operator</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,76 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge control-flow">Phase 2</span>
+        <h1>Conditional Statements</h1>
+        <p class="topic-description">if, else, and else if statements.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Conditional Statements (if, else)</h2>
+        <p>This is how your code makes decisions. if this is true, do this. otherwise, do that</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The basic structure</h2>
+        <ul>
+            <li><strong>if</strong> : The entry points. checks a condition</li>
+            <li><strong>else if</strong> : checks a new condition if the previous one was false. You can have many of these.</li>
+            <li><strong>else</strong> : The backup plan. Runs if all previous conditions were false.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The syntax</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">conditional.js</span>
+            </div>
+            <pre><code>const hour = 14; // 2 PM
+
+if (hour < 12) {
+    console.log("Good Morning");
+} else if (hour < 18) {
+    console.log("Good Afternoon");
+} else {
+    console.log("Good Evening");
+}
+// Output: "Good Afternoon"</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Nesting (Warning)</h2>
+        <p>You can put an if inside another if, but be careful. It makes code hard to read("Spaghetti code").</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">nesting.js</span>
+            </div>
+            <pre><code>const isWeekend = true;
+const time = 20;
+
+if (isWeekend) {
+    if (time > 18) {
+         console.log("Party time!");
+    }
+}
+// Better to use logical operators: if (isWeekend && time > 18) ...</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/1-foundations/string-manipulation" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">String Manipulation</span>
+        </a>
+        <a href="#/2-control-flow/switch-statements" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Switch Statements</span>
+        </a>
+    </nav>
+</article>
