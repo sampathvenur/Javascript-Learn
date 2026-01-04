@@ -1,0 +1,101 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge functions">Phase 3</span>
+        <h1>Arrow Functions</h1>
+        <p class="topic-description">Syntax and implicit returns.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Arrow Functions</h2>
+        <p>This is the modern way to write functions introduced in ES6.</p>
+        <p>You will use these 90% of the time in modern react or node.js development.</p>
+        <p>They are shorter and cleaner.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">arrow-function.js</span>
+            </div>
+            <pre><code>// The old way
+// const add = function (a, b) {
+//     return a + b;
+// };
+
+// The new way      // Remove the word function and add a "fat arrow" => after the parameters.
+const add = (a, b) => {
+    return a + b;
+};</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Implicit return</h2>
+        <p>If your function does one thing and returns the result immediately, you can remove the curly braces {} and
+            the keyword return.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">implicit-return.js</span>
+            </div>
+            <pre><code>// This function...
+// const multiply = (x, y) => {
+//     return x * y;
+// };
+
+// ...becomes this one-liner:
+const multiply = (x, y) => x * y;</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Parentheses rule</h2>
+        <ul>
+            <li><strong>Multiple parameters</strong> : Parentheses are required. (a, b) => ...</li>
+            <li><strong>Zero parameters</strong> : Parentheses are required. () => ...</li>
+            <li><strong>One parameter</strong> : Parentheses are optional (but I recommend keeping them for
+                consistency).</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">parentheses.js</span>
+            </div>
+            <pre><code>// const square = x => x * x;   // Valid
+const square = (x) => x * x;    // Also valid</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Note</h2>
+        <p>If you use the curly braces {}, the "implicit return" is turned off. You must write return.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">braces-note.js</span>
+            </div>
+            <pre><code>// Return undefined because of the braces!
+const broken = (a, b) => { a + b };
+
+// works
+const fixed = (a, b) => { return a + b };</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/3-functions/params-arguments" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Params & Arguments</span>
+        </a>
+        <a href="#/3-functions/scope" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Scope</span>
+        </a>
+    </nav>
+</article>

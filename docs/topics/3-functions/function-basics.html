@@ -1,0 +1,70 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge functions">Phase 3</span>
+        <h1>Function Basics</h1>
+        <p class="topic-description">Declaration vs Expression.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Function Basics</h2>
+        <p>A function is a reusable block of code designed to perform a particular task.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Function Declaration</h2>
+        <p>Use function keyword followed by a name</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">function-declaration.js</span>
+            </div>
+            <pre><code>sayHello();     // Hoisted - you can call the function before you write them in the code.
+
+function sayHello() {
+    console.log("Hello there!");
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Function Expression</h2>
+        <p>You can create a function and store it inside a variable (usually the const)</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">function-expression.js</span>
+            </div>
+            <pre><code>// sayBye();       // This is NOT hoisted, gives error!
+
+const sayBye = function() {
+    console.log("Goodbye!");
+};
+
+sayBye();       // Works here</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Calling / Invoking a function</h2>
+        <p>You have to call it to run the code</p>
+        <ul>
+            <li><strong>sayHello</strong> -> Refers to the function itself.</li>
+            <li><strong>sayHello()</strong> -> Runs the function.</li>
+        </ul>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/2-control-flow/loops" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Loops</span>
+        </a>
+        <a href="#/3-functions/params-arguments" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Params & Arguments</span>
+        </a>
+    </nav>
+</article>

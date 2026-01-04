@@ -1,0 +1,77 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge functions">Phase 3</span>
+        <h1>IIFE</h1>
+        <p class="topic-description">Immediately Invoked Function Expressions.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>IIFE (Immediately Invoked Function Expressions)</h2>
+        <p>An IIFE (pronounced "iffy") is a function that runs as soon as it is defined. It doesn't wait to be called
+            later.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>The Syntax (The "Secret Hug")</h2>
+        <p>It looks a bit weird because of the extra parentheses.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">iife-syntax.js</span>
+            </div>
+            <pre><code>(function() {
+  console.log("I run immediately!");
+})();
+
+// Breakdown:
+// 1. (function() { ... }): The first set of parentheses wraps the function to tell the compiler "This is an expression, not a normal declaration."
+// 2. (): The second set at the end is what actually calls (invokes) the function right now.</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Why use it?</h2>
+        <p>It is mainly used to create a Private Scope.</p>
+        <p>Variables declared inside an IIFE disappear immediately after it runs.</p>
+        <p>They do not leak into the Global scope or conflict with other variables.</p>
+        <p>Analogy: It's like a disposable camera. You take the picture (run the code), and then the camera is thrown
+            away.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>Example</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">iife-example.js</span>
+            </div>
+            <pre><code>(function() {
+  const secret = "Super Secret Code";
+  console.log("Setup done.");
+})();
+
+console.log(secret); // Error! 'secret' is gone.</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Note</h2>
+        <p>In modern JavaScript (with Modules and Block Scope), we use IIFEs less often, but you will see them
+            constantly in older code libraries.</p>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/3-functions/closures" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Closures</span>
+        </a>
+        <a href="#/3-functions/recursion" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Recursion</span>
+        </a>
+    </nav>
+</article>

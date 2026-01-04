@@ -1,0 +1,85 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge functions">Phase 3</span>
+        <h1>Params & Arguments</h1>
+        <p class="topic-description">Default params and Returns.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Parameters and Arguments</h2>
+        <p>Functions become powerful when we can pass data into them and get data out.</p>
+        <ul>
+            <li><strong>Parameters</strong> : The placeholders you define when writing the function. (The labeled
+                boxes).</li>
+            <li><strong>Arguments</strong> : The actual values you pass when calling the function. (The items you put in
+                the boxes).</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">params-args.js</span>
+            </div>
+            <pre><code>// 'name' is the parameter
+function greet(name) {
+    console.log(`Hello, ${name}`);
+}
+
+// 'Gemini' is the argument
+greet("Gemini");</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Default Parameters (ES6)</h2>
+        <p>You can set a fallback value if the user forgets to pass an argument.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">default-params.js</span>
+            </div>
+            <pre><code>function greet1(name = "Guest") {
+    console.log(`Hello, ${name}`);
+}
+
+greet1();       // Output: "Hello, Guest" (Uses default)
+greet1("Sam");  // Output: "Hello, Sam" (overwrites default)</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Return values</h2>
+        <p>By default, functions return 'undefined'.</p>
+        <p>To send data back to the code that called the function, use return.</p>
+        <p>The return keyword STOPS the function immediately. Any code written after it will never run.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">return.js</span>
+            </div>
+            <pre><code>function add(a, b) {
+    return a + b;
+    console.log("I will never print");      // Dead code
+}
+
+const result = add(5, 10);      // result is now 15
+console.log(result);</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/3-functions/function-basics" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Function Basics</span>
+        </a>
+        <a href="#/3-functions/arrow-functions" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Arrow Functions</span>
+        </a>
+    </nav>
+</article>

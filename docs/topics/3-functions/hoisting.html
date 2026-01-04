@@ -1,0 +1,102 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge functions">Phase 3</span>
+        <h1>Hoisting</h1>
+        <p class="topic-description">Variable and Function hoisting.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Hoisting</h2>
+        <p>Hoisting is a behavior where the JavaScript engine moves variable and function declarations to the top of
+            their scope before the code runs.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Function Hoisting</h2>
+        <p>Function Declarations are fully hoisted. You can call them before they are written.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">function-hoisting.js</span>
+            </div>
+            <pre><code>greet(); // Output: "Hello!" (It works!)
+
+function greet() {
+  console.log("Hello!");
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Function Expressions (and Arrow Functions) are NOT hoisted.</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">expression-not-hoisted.js</span>
+            </div>
+            <pre><code>greet(); // Error: Cannot access 'greet' before initialization
+
+const greet = () => {
+  console.log("Hello!");
+};</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Variable Hoisting (var vs let/const)</h2>
+
+        <h3>var Hoisting:</h3>
+        <p>The variable is hoisted, but its value is not. It is initialized as undefined.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">var-hoisting.js</span>
+            </div>
+            <pre><code>console.log(food); // Output: undefined (No error, but no data)
+var food = "Pizza";
+console.log(food); // Output: "Pizza"
+
+// What JS actually sees:
+// var food;          // Moved to top
+// console.log(food);
+// food = "Pizza";</code></pre>
+        </div>
+
+        <h3>let and const Hoisting:</h3>
+        <p>They are technically hoisted, but they land in a "Temporal Dead Zone" (TDZ).</p>
+        <p>If you try to touch them before the line where they are defined, JS throws an error.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">let-const-hoisting.js</span>
+            </div>
+            <pre><code>console.log(food); // ReferenceError: Cannot access 'food' before initialization
+let food = "Pizza";</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Summary Rule</h2>
+        <p>Don't rely on hoisting. It is confusing.</p>
+        <p>Always declare your variables and functions at the top of your scope/file.</p>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/3-functions/scope" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Scope</span>
+        </a>
+        <a href="#/3-functions/closures" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Closures</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,112 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge functions">Phase 3</span>
+        <h1>Scope</h1>
+        <p class="topic-description">Global, Function, and Block scope.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Scope</h2>
+        <p>Scope determines where your variables are available.</p>
+        <p>If you try to use a variable outside its scope, you get an error.</p>
+        <p>Think of scope like tinted windows: You can see out, but outsiders can't see in.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Global scope</h2>
+        <p>Variables declared outside of any function or block.</p>
+        <p>Visibility: Everywhere.</p>
+        <p>Risk: Easy to overwrite accidentally. Avoid using too many global variables.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">global-scope.js</span>
+            </div>
+            <pre><code>const globalVar = "I am everywhere";
+
+function test() {
+  console.log(globalVar); // Works!
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Function Scope</h2>
+        <p>Variables declared inside a function.</p>
+        <p>Visibility: Only inside that specific function.</p>
+        <p>Keywords: var, let, and const all respect function scope.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">function-scope.js</span>
+            </div>
+            <pre><code>function secret() {
+  const code = "1234";
+}
+
+console.log(code); // Error: code is not defined</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Block Scope (The Modern Standard)</h2>
+        <p>Variables declared inside a "block" (curly braces {}).</p>
+        <p>Visibility: Only inside that block (e.g., inside an if statement or a for loop).</p>
+        <p>Keywords: Only let and const respect this. var ignores it (leaks out).</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">block-scope.js</span>
+            </div>
+            <pre><code>if (true) {
+  let blockVar = "Safe inside";
+  var leaker = "I leaked out!";
+}
+
+console.log(blockVar); // Error: blockVar is not defined
+console.log(leaker);   // Output: "I leaked out!" (Bad!)</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. The Scope Chain (Lexical Scoping)</h2>
+        <p>When you use a variable, JS looks for it in the current scope. If it doesn't find it, it looks to the outer
+            parent scope. It keeps going up until it hits the Global scope.</p>
+        <p>Rule: Inner scopes can access outer variables. Outer scopes cannot access inner variables.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">scope-chain.js</span>
+            </div>
+            <pre><code>const outer = "Outer";
+
+function wrapper() {
+  const inner = "Inner";
+  
+  function deep() {
+    console.log(outer); // Works (Looks up 2 levels)
+    console.log(inner); // Works (Looks up 1 level)
+  }
+}</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/3-functions/arrow-functions" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Arrow Functions</span>
+        </a>
+        <a href="#/3-functions/hoisting" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Hoisting</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,74 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge functions">Phase 3</span>
+        <h1>Closures</h1>
+        <p class="topic-description">Inner functions accessing outer scope.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Closures</h2>
+        <p>A Closure is a function that remembers the variables from the place where it was created, even after that
+            place (the outer function) has finished running.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The Analogy: The Backpack</h2>
+        <p>Imagine a function is a hiker. When a function is created, it puts on a backpack.</p>
+        <p>Inside that backpack, it packs all the variables that were present in its parent scope at that moment.</p>
+        <p>Whenever that function goes later, it carries that backpack with those variables.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The Code Example</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">closure.js</span>
+            </div>
+            <pre><code>function createCounter() {
+  let count = 0; // Local variable inside createCounter
+
+  return function() {
+    count++; // It accesses 'count' from the parent
+    return count;
+  };
+}
+
+const myCounter = createCounter(); 
+// At this point, createCounter() has FINISHED running. 
+// Normally, 'count' should be garbage collected (deleted).
+// BUT, myCounter keeps a closure (backpack) containing 'count'.
+
+console.log(myCounter()); // Output: 1
+console.log(myCounter()); // Output: 2
+console.log(myCounter()); // Output: 3</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Why is this useful?</h2>
+        <p>It allows for Data Privacy.</p>
+        <p>In the example above, nobody can mess with the count variable directly (e.g., count = 1000).</p>
+        <p>They can only increment it by calling myCounter().</p>
+        <p>This is how private variables are created in JavaScript.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Summary</h2>
+        <p>A function inside another function + the outer variables = Closure.</p>
+        <p>It "closes over" the variables to preserve them.</p>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/3-functions/hoisting" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Hoisting</span>
+        </a>
+        <a href="#/3-functions/iife" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">IIFE</span>
+        </a>
+    </nav>
+</article>
