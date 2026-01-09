@@ -1,0 +1,90 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Array Transformation</h1>
+        <p class="topic-description">map, filter, reduce.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Array Transformation</h2>
+        <p>Note: They do NOT change the original array. They return a NEW array. (immutable)</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>map</h2>
+        <p>Transforms every single item into something else (input array(n), output new_array(n))</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">map.js</span>
+            </div>
+            <pre><code>const numbers = [1, 2, 3, 4];
+
+const doubled = numbers.map((item) => item * 2);</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>filter</h2>
+        <p>Pick only items that match a specific condition (input array(n), output new_array(&lt;=n))</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">filter.js</span>
+            </div>
+            <pre><code>const even = numbers.filter((item) => item%2 == 0);</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>reduce</h2>
+        <p>Takes entire array and calculates a single value from it (input array(n), output single_value : number,
+            string, object etc.,)</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">reduce.js</span>
+            </div>
+            <pre><code>const sum0 = numbers.reduce((prev_value, curr_value) => prev_value + curr_value);     // without initial value, prev_value will be the first element and curr_value will be the second element
+const sum1 = numbers.reduce((prev_value, curr_value) => prev_value + curr_value, 0);  // initial value is set to 0</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Output</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">output.js</span>
+            </div>
+            <pre><code>console.log(numbers);
+console.log(doubled);
+console.log(even);
+console.log(sum1);
+
+// [ 1, 2, 3, 4 ]
+// [ 2, 4, 6, 8 ]
+// [ 2, 4 ]
+// 10</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/array-iteration" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Array Iteration</span>
+        </a>
+        <a href="#/4-data-structures/array-searching" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Array Searching</span>
+        </a>
+    </nav>
+</article>

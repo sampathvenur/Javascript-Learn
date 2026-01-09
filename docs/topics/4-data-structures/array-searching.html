@@ -1,0 +1,87 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Array Searching</h1>
+        <p class="topic-description">includes, indexOf, find, findIndex, some, every.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>For simple search</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">simple-search.js</span>
+            </div>
+            <pre><code>const pets = ["dog", "cat", "cow", "fish"]
+
+// 1. includes(value): returns true or false
+
+console.log(pets.includes("dog"));  // true
+
+// 2. indexOf(value): returns index of the value, if not found returns -1
+
+console.log(pets.indexOf("cat"));</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>For condition based search</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">condition-search.js</span>
+            </div>
+            <pre><code>const users0 = ["sam", "jupiter"];
+const users1 = [
+    { id: 1, name: "sam" },
+    { id: 2, name: "jupiter" },
+];
+
+// 1. find(callback): returns only the first item that matches the condition, else returns undefined (note: since undefined is falsy value, be carefull with falsy value in array like 0 or "")
+
+console.log(users0.find(user => user.startsWith('s')));
+console.log(users1.find(user => user.id === 1));
+
+// 2. findIndex(callback): returns index of the first item that matches the condition, else returns -1
+
+console.log(users0.findIndex(user => user.startsWith('s')));
+console.log(users1.findIndex(user => user.id === 1));</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>For boolean check</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">boolean-check.js</span>
+            </div>
+            <pre><code>const number = [1, 2, 3, 4];
+
+// 1. some(callback): checks if atleast one item matches, OR logic.
+
+console.log(number.some(num => num > 2));
+
+// 2. every(callback): checks if all items match, AND logic.
+
+console.log(number.every(num => num > 0));</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/array-transformation" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Array Transformation</span>
+        </a>
+        <a href="#/4-data-structures/array-sorting" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Array Sorting</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,70 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Array Iteration</h1>
+        <p class="topic-description">for...of and forEach.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Array Iteration</h2>
+        <p>To go through every item one by one (iterate).</p>
+        <p>2 ways</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>for...of loop</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">for-of.js</span>
+            </div>
+            <pre><code>const fruits = ["apple", "orange", "banana", "grapes"];
+
+for (const fruit of fruits) {
+    console.log(fruit);
+}</code></pre>
+        </div>
+        <ul>
+            <li><strong>pros</strong> - readable, continue and break can be used</li>
+            <li><strong>cons</strong> - cannot use index</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>forEach method</h2>
+        <p>(a higher function that takes another function (callback function) as input. This function runs once for
+            every item in the array).</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">foreach.js</span>
+            </div>
+            <pre><code>const vegetables = ["potato", "carrot", "brinjal", "tomato"];
+
+// @params (value: string, index: number, array: string[])
+vegetables.forEach((fruit, index, array) => {
+    console.log(`Item ${index}: ${fruit}`);
+    console.log(array);
+});</code></pre>
+        </div>
+        <ul>
+            <li><strong>pros</strong> - gives index as the second argument</li>
+            <li><strong>cons</strong> - cannot use break and continue</li>
+        </ul>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/arrays-basics" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Arrays Basics</span>
+        </a>
+        <a href="#/4-data-structures/array-transformation" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Array Transformation</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,67 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Arrays Basics</h1>
+        <p class="topic-description">Creating arrays, push, pop, shift, unshift.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Array</h2>
+        <p>Array is a variable that can store more than one value at a time</p>
+        <p>To create array we use []</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">array-basics.js</span>
+            </div>
+            <pre><code>const alpha = [];   // chars
+alpha[0] = "apple";     // indexing start at 0
+console.log(typeof alpha);  // object
+
+const num = [1, 2, 3];      // nums
+const alpha_num = ["apple", 1, 2, "banana"];    // chars + nums</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Add or remove from end - fastest and efficient</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">push-pop.js</span>
+            </div>
+            <pre><code>let removed = alpha.pop();
+alpha.push("orange");</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Add or remove from start - slowest and not efficient</h2>
+        <p>(slow because computer has to re index all items)</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">shift-unshift.js</span>
+            </div>
+            <pre><code>removed = alpha_num.shift();
+alpha_num.unshift("orange");</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/3-functions/recursion" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Recursion</span>
+        </a>
+        <a href="#/4-data-structures/array-iteration" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Array Iteration</span>
+        </a>
+    </nav>
+</article>
