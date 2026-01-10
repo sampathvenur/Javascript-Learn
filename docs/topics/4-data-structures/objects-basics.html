@@ -1,0 +1,142 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Objects Basics</h1>
+        <p class="topic-description">Creating, accessing, modifying objects.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Objects</h2>
+        <p>If arrays are list, objects are dictionaries.</p>
+        <p>They allow you to store data in key-value pairs.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Creating objects</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">create-object.js</span>
+            </div>
+            <pre><code>const user = {
+    firstName: "Sam",
+    role: "Student",
+    age: 21,
+    isAdmin: false,
+    "home address": "Mangalore, India"  // Keys with spaces need quotes
+};</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Accessing data</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">access-object.js</span>
+            </div>
+            <pre><code>// dot notation
+console.log(user.firstName);
+// console.log(user."home address");    // error - fix : use bracket notation
+
+// bracket notation
+console.log(user["age"]);
+console.log(user["home address"]);</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. When use bracket notation?</h2>
+        <p>When key is stored inside a variable.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">bracket-notation.js</span>
+            </div>
+            <pre><code>const target = "role";
+console.log(user.target);   // undefined
+console.log(user[target]);  // Student</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Modifying objects</h2>
+        <p>Objects are mutable (even if declared with const)</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">modify-object.js</span>
+            </div>
+            <pre><code>user.email = "sam@123.com";     // add property
+user.age = 22;                  // update/modify property
+delete user.isAdmin;            // delete property
+console.log(user);</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>5. Object methods</h2>
+        <p>Functions stored inside objects are called methods.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">object-methods.js</span>
+            </div>
+            <pre><code>const car = {
+    brand: "Tesla",
+    // Method
+    startFSD: function() {
+        console.log("Full self driving started");
+    },
+    // Modern ES6 shorthand (preferred)
+    stopFSD() {
+        console.log("Full self driving stopped");
+    }
+};
+
+car.startFSD();             // Full self driving started
+car.stopFSD();              // Full self driving stopped
+console.log(car);           // { brand: 'Tesla', startFSD: [Function: startFSD], stopFSD: [Function: stopFSD] }
+console.log(car.startFSD);  // [Function: startFSD]
+
+console.log(car.startFSD());
+// Full self driving started
+// undefined
+
+// undefined is caused because the function doesn't return anything.
+
+// when js calls a function it runs the code inside the curly braces and then expects a return value to be returned.
+
+
+
+// car.startFSD()
+// Full self driving started printed on screen and undefined in not captured
+
+// let a = car.startFSD();
+// Full self driving started printed on screen and undefined in captured by a
+
+// console.log(a);      // undefined</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/array-sorting" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Array Sorting</span>
+        </a>
+        <a href="#/4-data-structures/this-keyword" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">The 'this' Keyword</span>
+        </a>
+    </nav>
+</article>

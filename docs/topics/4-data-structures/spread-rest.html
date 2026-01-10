@@ -1,0 +1,100 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Spread & Rest</h1>
+        <p class="topic-description">Spread operator and Rest parameters.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Spread operator (...)</h2>
+        <p>It allows an iterable (like an array or string) to be expanded into individual elements.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Spreading arrays</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">spread-arrays.js</span>
+            </div>
+            <pre><code>// A. merging arrays (used instead of concat())
+
+const boys = ["Sam", "Mike"];
+const girls = ["Sara", "Anna"];
+
+const allFriends = [...boys, ...girls];     // ["Sam", "Mike", "Sara", "Anna"]
+
+// B. adding elements
+
+const parts = ["knees", "toes"];
+const lyrics = ["head", "shoulders", ...parts]; // ["head", "shoulders", "knees", "toes"]
+
+// C. cloning arrays
+
+const original = [1, 2, 3];
+const copy = [...original]; // creates a shallow copy (breaks the reference link).</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Spreading objects</h2>
+        <p>Used to merge or clone objects.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">spread-objects.js</span>
+            </div>
+            <pre><code>// A. merging/updating properties rule: if keys match, the last one wins (overwrites the previous one).
+
+const user = { name: "Sam", age: 21 };
+const update = { age: 22, job: "Intern" };
+
+// 1. Spreads user (name: Sam, age: 21)
+// 2. Spreads update (age: 22, job: Intern) -> Overwrites age 21
+const updatedUser = { ...user, ...update };
+
+console.log(updatedUser); 
+// { name: "Sam", age: 22, job: "Intern" }</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Rest parameters</h2>
+        <p>The ... syntax is also used to collect multiple elements into an array. This is called the "Rest Pattern"
+            (because it collects the rest of the items).</p>
+        <ul>
+            <li><strong>Spread</strong> : Unpacks (Expands). Used in function calls or array definitions.</li>
+            <li><strong>Rest</strong> : Packs (Collects). Used in function definitions.</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">rest-params.js</span>
+            </div>
+            <pre><code>// Function accepts ANY number of arguments
+function sum(...numbers) {
+  // 'numbers' is now an array: [1, 2, 3, 4]
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // 10</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/es6-destructuring" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">ES6 Destructuring</span>
+        </a>
+        <a href="#/4-data-structures/optional-chaining" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Optional Chaining</span>
+        </a>
+    </nav>
+</article>

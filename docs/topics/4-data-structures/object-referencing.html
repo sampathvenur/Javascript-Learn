@@ -1,0 +1,81 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Object Referencing</h1>
+        <p class="topic-description">Value vs Reference.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Object References</h2>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Primitives = copy by value</h2>
+        <p>String, number, boolean etc., are stored as value itself.</p>
+        <p>When you copy them, you make a totally independent clone.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">copy-by-value.js</span>
+            </div>
+            <pre><code>let a = 10;
+let b = a;
+
+b = 20;
+
+console.log(a);     // 10</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Objects = copy by reference</h2>
+        <p>Objects, arrays, stores a reference (an address in the memory) pointing to where the data lives.</p>
+        <p>When you copy the variable, you are just copying the reference.</p>
+        <p>Both variables now point to the same object.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">copy-by-reference.js</span>
+            </div>
+            <pre><code>const user1 = { name: "Sam" };
+const user2 = user1;    // copy the reference, not the object
+
+user2.name = "Jupiter";
+
+console.log(user1.name); // Jupiter</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>To fix this - use spread operator</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">spread-fix.js</span>
+            </div>
+            <pre><code>const users1 = { name: "Sam" };
+const users2 = { ...users1 };
+
+users2.name = "Jupiter";
+
+console.log(users1.name); // Sam</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/this-keyword" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">The 'this' Keyword</span>
+        </a>
+        <a href="#/4-data-structures/object-utilities" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Object Utilities</span>
+        </a>
+    </nav>
+</article>

@@ -1,14 +1,80 @@
 <article class="topic-content">
-    <header class="topic-header"><span class="phase-badge data-structures">Phase 4</span>
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
         <h1>Array Sorting</h1>
-        <p class="topic-description">Sort method logic.</p>
+        <p class="topic-description">sort, compare functions, reverse.</p>
     </header>
+
     <section class="topic-section">
-        <h2>Coming Soon</h2>
-        <p>Content for this topic will be added soon.</p>
+        <h2>.sort()</h2>
+        <p>It mutates the original array, it does not return a new array</p>
+        <p>It converts everything to string and then compares the character codes (ASCII)</p>
+        <p>Hence it works for Characters not Numbers, by default</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">sort-default.js</span>
+            </div>
+            <pre><code>const fruits = ["banana", "apple", "cherry", "grapes"];
+console.log(fruits.sort());     // [ 'apple', 'banana', 'cherry', 'grapes' ]
+
+const numbers = [5, 20, 100, 1];
+console.log(numbers.sort());     // [ 1, 100, 20, 5 ]
+
+// Since it treats them as strings, "100" comes before "20" because "1" comes before "2".</code></pre>
+        </div>
     </section>
-    <nav class="topic-nav"><a href="#/4-data-structures/array-searching" class="nav-link prev"><span
-                class="nav-link-label">← Previous</span><span class="nav-link-title">Array Searching</span></a><a
-            href="#/4-data-structures/objects-basics" class="nav-link next"><span class="nav-link-label">Next
-                →</span><span class="nav-link-title">Objects Basics</span></a></nav>
+
+    <section class="topic-section">
+        <h2>Compare Functions</h2>
+        <p>To fix this we use compare functions</p>
+        <p>This function takes two numbers (a and b).</p>
+        <ul>
+            <li>If it returns a negative value, a is sorted before b.</li>
+            <li>If it returns a positive value, b is sorted before a.</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">compare-function.js</span>
+            </div>
+            <pre><code>// Ascending order
+numbers.sort((a, b) => a - b);
+console.log(numbers); // [1, 5, 20, 100]
+
+// Descending order
+numbers.sort((a, b) => b - a);
+console.log(numbers); // [100, 20, 5, 1]</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Reversing</h2>
+        <p>This mutates the original array</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">reverse.js</span>
+            </div>
+            <pre><code>const num = [1, 2, 3, 4];
+console.log(num.reverse()); // [4, 3, 2, 1]</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/array-searching" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Array Searching</span>
+        </a>
+        <a href="#/4-data-structures/objects-basics" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Objects Basics</span>
+        </a>
+    </nav>
 </article>

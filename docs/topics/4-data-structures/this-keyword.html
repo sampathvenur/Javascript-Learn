@@ -1,0 +1,81 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>The 'this' Keyword</h1>
+        <p class="topic-description">Context binding in objects.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>this</h2>
+        <p>Refers to the object that called the function.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Inside an object method</h2>
+        <p>When you use this inside the object's method, this equals the object itself.</p>
+        <p>It allows the method to access other data inside the same object.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">this-method.js</span>
+            </div>
+            <pre><code>const user = {
+    name: "Sam",
+    age: 21,
+
+    printInfo() {
+        // "this" means "user"
+        console.log(`${this.name} is in year ${this.age}`);
+    }
+};
+
+user.printInfo();</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The "Left of the dot" rule</h2>
+        <p>To figure out what this is, look at how the function is called, not where it is written.</p>
+        <ul>
+            <li>user.printInfo() - Left of the dot is user. so this = user</li>
+            <li>car.start() - Left of dot is car. so this = car</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Arrow function Trap</h2>
+        <p>Arrow functions DO NOT have their own this.</p>
+        <p>If the method is an arrow function, this will NOT point to the object.</p>
+        <p>It will point to the Window/global scope, and the code will break</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">arrow-trap.js</span>
+            </div>
+            <pre><code>const user1 = {
+    name: "Sam",
+    sayHi: () => {
+        // error - arrow function doesn't user user via this
+        console.log(this.name);
+    }
+};
+
+user1.sayHi();</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/objects-basics" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Objects Basics</span>
+        </a>
+        <a href="#/4-data-structures/object-referencing" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Object Referencing</span>
+        </a>
+    </nav>
+</article>

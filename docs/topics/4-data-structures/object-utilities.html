@@ -1,0 +1,79 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Object Utilities</h1>
+        <p class="topic-description">Object.keys, values, entries.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Object Utilities</h2>
+        <p>To convert an object into an array so you can loop over it or transform it.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Object.keys()</h2>
+        <p>Returns an array containing all the keys (variable names) of the object.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">object-keys.js</span>
+            </div>
+            <pre><code>const user = {
+  name: "Sam",
+  age: 21,
+  role: "Intern"
+};
+
+const keys = Object.keys(user);
+console.log(keys); // ["name", "age", "role"]</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Object.values()</h2>
+        <p>Returns an array containing all the values of the object.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">object-values.js</span>
+            </div>
+            <pre><code>const values = Object.values(user);
+console.log(values); // ["Sam", 21, "Intern"]</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Object.entries()</h2>
+        <p>Returns an array of arrays, where each inner array is a [key, value] pair object.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">object-entries.js</span>
+            </div>
+            <pre><code>const entries = Object.entries(user);
+// [ ["name", "Sam"], ["age", 21], ["role", "Intern"] ]
+
+// Looping Example
+for (const [key, value] of Object.entries(user)) {
+  console.log(`${key}: ${value}`);
+}</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/object-referencing" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Object Referencing</span>
+        </a>
+        <a href="#/4-data-structures/es6-destructuring" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">ES6 Destructuring</span>
+        </a>
+    </nav>
+</article>

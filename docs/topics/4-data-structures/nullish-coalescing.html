@@ -1,0 +1,105 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>Nullish Coalescing</h1>
+        <p class="topic-description">Default values with ??.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Nullish Coalescing (??)</h2>
+        <p>Introduced in ES2020 - to solve a specific problem with setting Default Values.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The problem with OR (||)</h2>
+        <p>For years, developers used || to set defaults. const val = input || "default";</p>
+        <p>The Flaw: The || operator treats 0 and "" (empty string) as False.</p>
+        <p>If a user enters 0 (e.g., score: 0), the || operator thinks it's "bad" input and replaces it with the default
+            value.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">problem.js</span>
+            </div>
+            <pre><code>const userScore = 0; // 0 is a valid score!
+
+// Problem: 0 is "falsy", so it falls back to 10.
+const finalScore = userScore || 10; 
+
+console.log(finalScore); // 10</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The fix - ??</h2>
+        <p>It checks if a value is Nullish (null or undefined). It does not care about 0 or "".</p>
+        <p>Rule: If the left side is null or undefined, use the right side. Otherwise, keep the left side.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">fix.js</span>
+            </div>
+            <pre><code>const userScore1 = 0;
+
+// Solution: 0 is NOT null/undefined, so it keeps 0.
+const finalScore1 = userScore1 ?? 10;
+
+console.log(finalScore1); // 0</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Comparison table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>input value</th>
+                    <th>operator</th>
+                    <th>result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>null</td>
+                    <td>?? "Default"</td>
+                    <td>"Default"</td>
+                </tr>
+                <tr>
+                    <td>undefined</td>
+                    <td>?? "Default"</td>
+                    <td>"Default"</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>?? "Default"</td>
+                    <td>0 (Valid)</td>
+                </tr>
+                <tr>
+                    <td>""</td>
+                    <td>?? "Default"</td>
+                    <td>"" (Valid)</td>
+                </tr>
+                <tr>
+                    <td>false</td>
+                    <td>?? "Default"</td>
+                    <td>false (Valid)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/optional-chaining" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Optional Chaining</span>
+        </a>
+        <a href="#/5-the-dom/selectors" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Selectors</span>
+        </a>
+    </nav>
+</article>

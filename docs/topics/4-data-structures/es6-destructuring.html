@@ -1,0 +1,90 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge data-structures">Phase 4</span>
+        <h1>ES6 Destructuring</h1>
+        <p class="topic-description">Object and Array destructuring.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Destructuring (unpacking)</h2>
+        <p>It allows you to extract data from arrays or objects and assign them to variables in a single, clean line.
+        </p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Object destructuring</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">object-destructure.js</span>
+            </div>
+            <pre><code>const user = { firstName: "Sam", age: 21 };
+
+const { firstName, age } = user;    // variable names must match the object keys (unless you rename them)
+
+console.log(firstName); // "Sam"
+console.log(age);       // 21
+
+// Renaming Variables: If you want the variable to have a different name than the key:
+
+const { firstName: myName } = user;
+console.log(myName); // "Sam"</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Array destructuring</h2>
+        <p>It works based on position (order), not names.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">array-destructure.js</span>
+            </div>
+            <pre><code>const numbers = [10, 20, 30];
+
+const [a, b] = numbers;     // Put the first item in 'a', second in 'b'
+
+console.log(a); // 10
+console.log(b); // 20
+
+// Skipping Items: You can use an empty comma, to skip an index.
+
+const [first, , third] = ["Gold", "Silver", "Bronze"];
+console.log(third); // "Bronze"</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Swapping variables</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">swap.js</span>
+            </div>
+            <pre><code>let x = 5;
+let y = 10;
+
+[x, y] = [y, x];
+
+console.log(x); // 10
+console.log(y); // 5</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/object-utilities" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Object Utilities</span>
+        </a>
+        <a href="#/4-data-structures/spread-rest" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Spread & Rest</span>
+        </a>
+    </nav>
+</article>
