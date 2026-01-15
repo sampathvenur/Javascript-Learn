@@ -1,0 +1,79 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge the-dom">Phase 5</span>
+        <h1>Event Propagation</h1>
+        <p class="topic-description">Bubbling and Capturing.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Event Propagation</h2>
+        <p>Explains the order in which the clicks are handled by the browser.</p>
+        <p>3 phases - event travels through DOM in a round trip.</p>
+        <ul>
+            <li><strong>capturing phase</strong> - the event travels down, from document root to target.</li>
+            <li><strong>target phase</strong> - the event hits the actual element you clicked.</li>
+            <li><strong>bubbling phase</strong> - the event travels up, from target to document root.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Event bubbling</h2>
+        <p>Events trigger on the deepest element first, then bubble up, like air bubbles in water.</p>
+        <p>Imagine you have Grandparent > Parent > child (all have click listeners).</p>
+        <p>If you click the Child:</p>
+        <ul>
+            <li>1. Child runs first</li>
+            <li>2. Parent runs second</li>
+            <li>3. Grandparent runs last</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Stopping the bubble</h2>
+        <p>Imagine you have a clickable card component that opens a popup.</p>
+        <p>Inside that card is a delete button.</p>
+        <p>Clicking delete deletes the item, but the click bubbles up to the card and opens the popup too.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">stopPropagation.js</span>
+            </div>
+            <pre><code>// fix
+deleteBtn.addEventListener('click', function(e) {
+    // runs delete logic...
+    console.log("Deleted");
+
+    // stop the event from going to parents
+    e.stopPropagation();
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Event capturing</h2>
+        <p>We can force the event to fire downwards (before it reaches the target).</p>
+        <p>This is done by passing a third argument true (or {capture: true}).</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">capturing.js</span>
+            </div>
+            <pre><code>grandparent.addEventListener('click', func, true);      // runs first</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/5-the-dom/events-basics" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Events Basics</span>
+        </a>
+        <a href="#/5-the-dom/event-delegation" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Event Delegation</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,114 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge the-dom">Phase 5</span>
+        <h1>Events Basics</h1>
+        <p class="topic-description">addEventListener, mouse and keyboard events.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Event Basics</h2>
+        <p>Events are things that happen in the browser—a click, a keypress, a scroll, or a form submission.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. addEventListener</h2>
+        <p>This is how you tell an element to wait for an event.</p>
+        <p>element.addEventListener(eventType, function)</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">addEventListener.js</span>
+            </div>
+            <pre><code>const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+  console.log('Button was clicked!');
+});
+
+// it is better than onClick since onClick can only have one function, this can have multiple.</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Mouse events</h2>
+        <ul>
+            <li>click: left click</li>
+            <li>dblclick: double click</li>
+            <li>mouseenter/mouseleave: when the mouse hovers over or leaves an element</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">mouseEvents.js</span>
+            </div>
+            <pre><code>const box = document.querySelector('.box');
+
+box.addEventListener('mouseenter', ()=> {
+  box.style.backgroundColor = 'red';
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Keyboard events</h2>
+        <ul>
+            <li>keydown: fires the moment you press a key</li>
+            <li>keyup: fires when you release the key</li>
+        </ul>
+        <p>To know which key was actually pressed the event function automatically receives an event object (named e or
+            event) which contains all the details.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">keyboardEvents.js</span>
+            </div>
+            <pre><code>document.addEventListener('keydown', function(e) {
+  console.log(e.key);
+
+  if (e.key === 'Escape') {
+    closeModal(); // close a popup window
+  }
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Removing listeners</h2>
+        <p>When you have to stop listening</p>
+        <p>Note: the function must be named function not anonymous.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">removeListener.js</span>
+            </div>
+            <pre><code>function sayHello() {
+  console.log("Hello");
+}
+
+// Add
+btn.addEventListener('click', sayHello);
+
+// Remove
+btn.removeEventListener('click', sayHello);</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/5-the-dom/traversing" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Traversing</span>
+        </a>
+        <a href="#/5-the-dom/event-propagation" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Event Propagation</span>
+        </a>
+    </nav>
+</article>

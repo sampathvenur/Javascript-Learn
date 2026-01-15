@@ -1,0 +1,127 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge the-dom">Phase 5</span>
+        <h1>Selectors</h1>
+        <p class="topic-description">What is the DOM, querySelector, querySelectorAll.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>What is the DOM?</h2>
+        <p>The DOM (Document Object Model) is the bridge between your JavaScript code and the HTML on the screen.</p>
+        <p>Without the DOM, JavaScript is just a language calculating numbers in the background. With the DOM, JavaScript becomes the puppeteer of the webpage.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The concept</h2>
+        <p>When a browser (like Chrome) loads a webpage, it takes your HTML code and builds a Tree Structure in memory.</p>
+        <p>Every HTML tag (&lt;div&gt;, &lt;h1&gt;, &lt;p&gt;) becomes a JavaScript Object (a "Node").</p>
+        <p>Because they are objects, we can change them using JavaScript.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The structure (The family tree)</h2>
+        <p>The DOM is organized like a family tree.</p>
+        <ul>
+            <li><strong>Root</strong> : The document object (the starting point).</li>
+            <li><strong>Parents & Children</strong> : &lt;body&gt; is the parent of &lt;h1&gt;. &lt;h1&gt; is the child of &lt;body&gt;.</li>
+            <li><strong>Siblings</strong> : Two &lt;li&gt; tags side-by-side are siblings.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. The document object</h2>
+        <p>This is your entry point. If you type document in your browser console, you will see the entire HTML code of the page.</p>
+        <ul>
+            <li>document.title -> Gives you the title of the tab.</li>
+            <li>document.URL -> Gives you the current website address.</li>
+            <li>document.body -> Gives you the entire body content.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. What can we do with it?</h2>
+        <p>Using the DOM API, JavaScript can:</p>
+        <ul>
+            <li><strong>Change Content</strong> : Update text inside a paragraph.</li>
+            <li><strong>Change Style</strong> : Turn a button red.</li>
+            <li><strong>Add/Remove Elements</strong> : Create a new list item or delete an image.</li>
+            <li><strong>React to Events</strong> : Run code when a user clicks or types.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Selecting Elements</h2>
+        <p>Before changing anything on the website, you have to tell the javascript which element to change. (selecting it)</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. querySelector()</h2>
+        <p>It allows you to select elements using CSS syntax (just like you do in your .css file).</p>
+        <ul>
+            <li>Select by Tag: document.querySelector('h1') (Selects the first &lt;h1&gt;)</li>
+            <li>Select by Class: document.querySelector('.btn') (Selects the first element with class "btn")</li>
+            <li>Select by ID: document.querySelector('#header') (Selects the element with ID "header")</li>
+        </ul>
+        <p>Note: It only returns the FIRST match it finds.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">querySelector.js</span>
+            </div>
+            <pre><code>const myButton = document.querySelector('.submit-btn');
+console.log(myButton); // Prints the HTML element to the console</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. querySelectorAll()</h2>
+        <p>It returns all elements that match.</p>
+        <p>It returns a NodeList (which looks and acts like an Array).</p>
+        <p>You can loop over it using forEach.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">querySelectorAll.js</span>
+            </div>
+            <pre><code>const allParagraphs = document.querySelectorAll('p');
+
+allParagraphs.forEach(para => {
+    console.log(para); // Prints every paragraph one by one
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. getElementById()</h2>
+        <p>It is slightly faster than querySelector but only works for IDs.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">getElementById.js</span>
+            </div>
+            <pre><code>const title = document.getElementById('main-title');
+// Note: You do NOT use the hash '#' here, just the name.</code></pre>
+        </div>
+        <ul>
+            <li>Use querySelector for almost everything (it's cleaner).</li>
+            <li>Use getElementById if you need extreme performance (rarely needed).</li>
+        </ul>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/4-data-structures/nullish-coalescing" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Nullish Coalescing</span>
+        </a>
+        <a href="#/5-the-dom/manipulation" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Manipulation</span>
+        </a>
+    </nav>
+</article>

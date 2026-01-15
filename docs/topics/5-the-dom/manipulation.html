@@ -1,0 +1,148 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge the-dom">Phase 5</span>
+        <h1>Manipulation</h1>
+        <p class="topic-description">Changing content and styles.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Manipulating Content</h2>
+        <p>To change the content of an html element after selecting it.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. .textContent</h2>
+        <p>This is the most common way to read or change text.</p>
+        <p>It accesses all text contained in the element and its children, including hidden text.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">textContent.js</span>
+            </div>
+            <pre><code>const title = document.querySelector('h1');
+
+console.log(title.textContent); // Read
+
+title.textContent = "Welcome, Sam!"; // Write
+// The browser immediately updates the text on the screen.</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. .innerText</h2>
+        <p>Very similar to textContent, but it respects CSS styles.</p>
+        <p>If an element is hidden (display: none), .innerText will not return it, while .textContent will.</p>
+        <p>Note: Stick to .textContent unless you specifically need only the visible text.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. .innerHTML - (The Powerful & Dangerous)</h2>
+        <p>This allows you to get or set the HTML markup inside an element.</p>
+        <p>This means you can add &lt;strong&gt; tags, links, or entirely new structures.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">innerHTML.js</span>
+            </div>
+            <pre><code>const box = document.querySelector('.box');
+
+box.innerHTML = "&lt;strong&gt;This is bold text&lt;/strong&gt;";       // This renders as BOLD text</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Security Warning (XSS Attack)</h2>
+        <p>Never use .innerHTML with data that comes from a user (like a comment or username).</p>
+        <p>A hacker can insert a &lt;script&gt; tag inside their comment, and your website will run their malicious
+            code.</p>
+        <ul>
+            <li><strong>Safe</strong> : element.textContent = userComment; (Treats tags as plain text)</li>
+            <li><strong>Unsafe</strong> : element.innerHTML = userComment; (Runs tags as code)</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Manipulating Styles</h2>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The direct way (.style)</h2>
+        <p>You can access CSS properties directly on the element.</p>
+        <p>Note: CSS properties with hyphens (like background-color) must be converted to camelCase in JavaScript.</p>
+        <ul>
+            <li>background-color -> backgroundColor</li>
+            <li>font-size -> fontSize</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">style.js</span>
+            </div>
+            <pre><code>const box = document.querySelector('.box');
+
+box.style.backgroundColor = 'red';      // Change background to red
+
+box.style.width = '100px';              // Change width (MUST be a string with units)
+// box.style.width = 100; // Won't work!</code></pre>
+        </div>
+        <p>The Downside: This adds inline styles directly to the HTML tag (&lt;div style="color: red"&gt;).</p>
+        <p>It overrides everything else and makes your HTML messy.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The professional way (classList)</h2>
+        <p>Instead of writing CSS inside JS, you should define a class in your CSS file (e.g., .hidden or .active) and
+            then simply add or remove that class using JavaScript.</p>
+        <p>This keeps your styling in CSS and your logic in JS.</p>
+        <p>The Toolkit:</p>
+        <ul>
+            <li>classList.add('className'): Adds a class.</li>
+            <li>classList.remove('className'): Removes a class.</li>
+            <li>classList.toggle('className'): Adds it if missing, removes it if present (like a light switch).</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">classList.js</span>
+            </div>
+            <pre><code>/* In your CSS file */
+// .dark-mode {
+//   background-color: black;
+//   color: white;
+// }
+
+
+/* In your JS file */
+const body = document.querySelector('body');
+
+// Activate dark mode
+body.classList.add('dark-mode');
+
+// Toggle it on/off (Great for buttons!)
+body.classList.toggle('dark-mode');</code></pre>
+        </div>
+        <ul>
+            <li>Use .style for dynamic values (e.g., a progress bar width changing in real-time).</li>
+            <li>Use .classList for state changes (e.g., active, disabled, hidden, dark-mode).</li>
+        </ul>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/5-the-dom/selectors" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Selectors</span>
+        </a>
+        <a href="#/5-the-dom/traversing" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Traversing</span>
+        </a>
+    </nav>
+</article>
