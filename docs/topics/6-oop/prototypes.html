@@ -1,0 +1,86 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge oop">Phase 6</span>
+        <h1>Prototypes</h1>
+        <p class="topic-description">The prototype chain and inheritance.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Prototypes</h2>
+        <p>Every Javascript object has a hidden link to another object. This parent object is called it's prototype.</p>
+        <p>Instead of classes for inheritance, Javascript uses Prototypes.</p>
+        <p>Even if you use class keyword, under the hood it is still a Prototype.</p>
+        <p>The prototype contains methods and properties that the original object can borrow.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>The Prototype Chain</h2>
+        <p>When you try to access a property or method (like .toString()) on an object:</p>
+        <ul>
+            <li>1. JS checks the object itself. Found? Use it.</li>
+            <li>2. If not, it looks at the object's prototype. Found? Use it.</li>
+            <li>3. If not, it looks at the prototype's prototype.</li>
+            <li>4. It keeps going up until it hits null. (the end of the chain)</li>
+            <li>5. If still not found, it returns undefined.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Why Arrays Have Methods (.push(), .pop()?)</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">array-prototype.js</span>
+            </div>
+            <pre><code>const myFriend = ["Sam", "Mike"];
+console.log(myFriend.push)          // [Function: push]
+
+// 1. myFriend: Just a list of strings. It does not have .push()
+// 2. myFriends.__prototype__ (Array Prototype): This is the blueprint for all arrays. It has the .push()
+// 3. Javascript uses the function from the prototype.</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Example</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">prototype-chain.js</span>
+            </div>
+            <pre><code>const num = 10;
+
+// 1. The number itself
+console.log(num);       // 10
+
+// 2. Number.prototype (Has methods like toFixed)
+console.log(num.__proto__);         // {}
+
+// 3. Object.prototype (The greater ancestor of everything)
+console.log(num.__proto__.__proto__);           // [Object: null prototype] {}
+
+// 4. null (The End)
+console.log(num.__proto__.__proto__.__proto__);         // null</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>This saves memory</h2>
+        <p>Instead of every single array carrying the code for .push(), the code exists in one place (the prototype), and all the arrays share it.</p>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/5-the-dom/event-delegation" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Event Delegation</span>
+        </a>
+        <a href="#/6-oop/classes" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Classes</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,90 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge oop">Phase 6</span>
+        <h1>Classes</h1>
+        <p class="topic-description">ES6 class syntax and instances.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Classes - 2015 (ES6)</h2>
+        <p>Note: under the hood it still uses prototypes. Classes are just syntactic sugar for the same old prototype
+            chain.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Syntax</h2>
+        <p>Class is the blueprint.</p>
+        <p>You define it once and then you can use it to create as many objects/instances as you want from it.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">class-syntax.js</span>
+            </div>
+            <pre><code>class Student {
+    // The setup function
+    constructor(name, year) {
+        this.name = name;
+        this.year = year; 
+    }
+
+    // Method (Shared by all students)
+    introduce() {
+        console.log(`Hi I'm ${this.name}, a year ${this.year} student.`);
+    }
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Constructor method</h2>
+        <p>It runs automatically the moment you create a new instance of the class.</p>
+        <p>It's job is to initialize the object's properties (data).</p>
+        <p>"this" refers to the new object being created.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Creating instances - with new keyword</h2>
+        <p>"new" triggers the constructor</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">instances.js</span>
+            </div>
+            <pre><code>const sam = new Student("Sam", 4);
+const gemini = new Student("Gemini", 1);
+
+sam.introduce();        // Hi I'm Sam, a year 4 student.
+gemini.introduce();     // Hi I'm Gemini, a year 1 student.</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Why use classes?</h2>
+        <ul>
+            <li><strong>organization</strong> - It keeps your data (properties) and behavior (methods) grouped together
+                logically.</li>
+            <li><strong>reusability</strong> - You write the logic once (introduce()) and use it for 1,000 of students
+                without rewriting code.</li>
+        </ul>
+        <ul>
+            <li><strong>class</strong> - The template (the factory)</li>
+            <li><strong>instance</strong> - The object produced (the car)</li>
+            <li><strong>constructor</strong> - The assembly line startup script.</li>
+        </ul>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/6-oop/prototypes" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Prototypes</span>
+        </a>
+        <a href="#/6-oop/inheritance" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Inheritance</span>
+        </a>
+    </nav>
+</article>

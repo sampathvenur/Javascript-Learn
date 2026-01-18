@@ -1,0 +1,112 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge oop">Phase 6</span>
+        <h1>Inheritance</h1>
+        <p class="topic-description">extends, super, and method overriding.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Inheritance</h2>
+        <p>It allows you to create a specific version of a generic class.</p>
+        <p>Imagine a generic class called User. It has a name and an email.</p>
+        <p>Now you need a Admin. An Admin is a User, but with extra powers (like deleting posts).</p>
+        <p>Instead of rewriting the name and email logic, the Admin class inherits (extends) from User.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The extends keyword</h2>
+        <p>This tells JavaScript: "This new class is a child of that parent class."</p>
+        <p>It automatically links the prototype chains.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">extends.js</span>
+            </div>
+            <pre><code>class User {
+  constructor(name) {
+    this.name = name;
+  }
+  
+  login() {
+    console.log(`${this.name} has logged in.`);
+  }
+}
+
+// Admin inherits everything from User
+class Admin extends User {
+  deletePost() {
+    console.log("Post deleted!");
+  }
+}
+
+const admin = new Admin("Sampath");
+admin.login();      // Works! (Inherited from User)
+admin.deletePost(); // Works! (Specific to Admin)</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The super() keyword</h2>
+        <p>If the child class needs its own data (extra properties), you need to write a constructor.</p>
+        <p>Inside a child constructor, you MUST call super() before you can use the "this" keyword.</p>
+        <p>super() calls the Parent's constructor.</p>
+        <p>It essentially says: "Run the setup code for the parent first, then let me add my extra stuff."</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">super.js</span>
+            </div>
+            <pre><code>class Student extends User {
+  constructor(name, year) {
+    // 1. Call the parent first (sets this.name)
+    super(name); 
+    
+    // 2. Now add student-specific data
+    this.year = year; 
+  }
+
+  printDetails() {
+    console.log(`${this.name} is in year ${this.year}`);
+  }
+}
+
+const s = new Student("Gemini", 1);</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Method overriding</h2>
+        <p>If the child defines a method with the same name as the parent, the child's method wins.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">override.js</span>
+            </div>
+            <pre><code>class Admin extends User {
+  // Overrides User.login()
+  login() {
+    console.log("ADMIN LOGIN DETECTED via 2FA");
+    // You can even call the original parent method inside here:
+    // super.login(); 
+  }
+}</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/6-oop/classes" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Classes</span>
+        </a>
+        <a href="#/6-oop/advanced-this" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Advanced 'this'</span>
+        </a>
+    </nav>
+</article>

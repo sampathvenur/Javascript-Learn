@@ -1,0 +1,130 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge oop">Phase 6</span>
+        <h1>Accessors</h1>
+        <p class="topic-description">Getters and Setters.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Accessors (getters and setters)</h2>
+        <p>Accessors are special methods that look and act like properties.</p>
+        <p>They allow you to execute logic (code) when you read or write a value, without the user of your code knowing
+            they are calling a function.</p>
+        <p>They are the "Gatekeepers" of your data.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The Getter (get)</h2>
+        <p>A getter binds an object property to a function that will be called when that property is looked up.</p>
+        <p>It is used to compute a value dynamically.</p>
+        <p>Syntax: Use the get keyword before the method name.</p>
+        <p>Usage: You access it like a variable obj.prop, not a function obj.prop().</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">getter.js</span>
+            </div>
+            <pre><code>const user1 = {
+  firstName: "Sam",
+  lastName: "Student",
+
+  // This looks like a property, but it runs code!
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+};
+
+console.log(user1.fullName); // "Sam Student"
+// Note: We did NOT use parenthesis ().</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The Setter (set)</h2>
+        <p>A setter binds an object property to a function to be called when there is an attempt to set that property.
+        </p>
+        <p>It is perfect for Validation.</p>
+        <p>Syntax: Use the set keyword.</p>
+        <p>It must accept exactly one parameter (the new value).</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">setter.js</span>
+            </div>
+            <pre><code>const user2 = {
+  // Convention: underscore means "internal/private" variable
+  _age: 21, 
+
+  set age(value) {
+    if (value < 0) {
+      console.log("Error: Age cannot be negative!");
+      return;
+    }
+    this._age = value;
+  }
+};
+
+user2.age = 25; // Works fine
+user2.age = -5; // Output: "Error: Age cannot be negative!"</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Why use them?</h2>
+        <ul>
+            <li><strong>1. Computed Properties</strong> : You don't need to store fullName in the database. You just
+                store first/last name and calculate the full name on the fly. This ensures the full name is never "out
+                of sync."</li>
+            <li><strong>2. Validation/Security</strong> : You can prevent users from setting invalid data (like negative
+                age or empty passwords) while keeping the syntax clean (user.age = 5).</li>
+            <li><strong>3. Encapsulation</strong> : You can hide the internal complexity of how data is stored.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Class Syntax</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">class-accessors.js</span>
+            </div>
+            <pre><code>class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+
+  // Getter for area
+  get area() {
+    return Math.PI * this.radius * this.radius;
+  }
+  
+  // Setter to update radius based on diameter
+  set diameter(d) {
+    this.radius = d / 2;
+  }
+}
+
+const c = new Circle(10);
+console.log(c.area); // 314.15...
+c.diameter = 100;    // This updates the radius to 50
+console.log(c.radius); // 50</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/6-oop/advanced-this" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Advanced 'this'</span>
+        </a>
+        <a href="#/7-async-js/sync-vs-async" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Sync vs Async</span>
+        </a>
+    </nav>
+</article>
