@@ -29,7 +29,7 @@ class Admin extends User {
   }
 }
 
-const admin = new Admin("Sampath");
+const admin = new Admin("Sam");
 admin.login();      // Works! (Inherited from User)
 admin.deletePost(); // Works! (Specific to Admin)
 
