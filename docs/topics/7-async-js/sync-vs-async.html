@@ -1,0 +1,67 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge async-js">Phase 7</span>
+        <h1>Sync vs Async</h1>
+        <p class="topic-description">Synchronous and Asynchronous code.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Sync and Async</h2>
+        <p>This shows how javascript talks with the outside world (servers, databases, apis)</p>
+        <p>Javascript is synchronous and single threaded BY DEFAULT</p>
+        <ul>
+            <li><strong>synchronous</strong> - execute code line-by-line, in order.</li>
+            <li><strong>single threaded</strong> - it can only do one thing at a time.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Synchronous</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">sync.js</span>
+            </div>
+            <pre><code>console.log("1. Start");
+
+for(let i = 0; i < 1000000000; i++) {}
+
+console.log("2. End");      // this prints after some delay - Js has to finish the loop before executing this line</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Asynchronous</h2>
+        <p>Async code allows Javascript to initiate a task, hand it off to the browser to handle in the background, and immediately move on to the next line of code without waiting.</p>
+        <p>When the background task is finished, it notifies Javascript: "Hey, I'm done!"</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">async.js</span>
+            </div>
+            <pre><code>console.log("1. I order Pizza");
+
+// Async func
+setTimeout(() => {
+    console.log("2. Pizza is ready! (Server Callback)");
+}, 3000);   // 3 seconds delay
+
+console.log("3. I call my friend");</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/6-oop/accessors" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Accessors</span>
+        </a>
+        <a href="#/7-async-js/callbacks" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Callbacks</span>
+        </a>
+    </nav>
+</article>

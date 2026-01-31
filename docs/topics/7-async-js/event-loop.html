@@ -1,0 +1,98 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge async-js">Phase 7</span>
+        <h1>Event Loop</h1>
+        <p class="topic-description">Microtasks and Callback Queue.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>The Event Loop - Microtasks & Callback Queue</h2>
+        <p>It explains why some code runs before others, even if it looks like it shouldn't.</p>
+        <p>When asynchronous code finishes (like a timer or a fetch), it doesn't go straight back to the main code.</p>
+        <p>It goes into a Queue. But there isn't just one queue; there are two.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Callback Queue (Macrotasks)</h2>
+        <ul>
+            <li>Contains: setTimeout, setInterval, DOM Events (clicks).</li>
+            <li>Priority: Low.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Microtask Queue (VIP)</h2>
+        <ul>
+            <li>Contains: Promises (.then, .catch, .finally), queueMicrotask.</li>
+            <li>Priority: High.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>The Event Loop checks the queues in a specific order:</h2>
+        <ul>
+            <li>1. Run all Synchronous Code (Call Stack) until it is empty.</li>
+            <li>2. Run ALL Microtasks until the Microtask Queue is completely empty.</li>
+            <li>3. Run ONE Macrotask (Callback Queue).</li>
+            <li>4. Repeat.</li>
+        </ul>
+        <p>Promises (Microtasks) will always run before setTimeout (Macrotasks), even if the timer is set to 0 seconds.
+        </p>
+    </section>
+
+    <section class="topic-section">
+        <h2>Example</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">event-loop.js</span>
+            </div>
+            <pre><code>console.log("1. Script Start");
+
+setTimeout(() => {
+  console.log("2. setTimeout");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3. Promise");
+});
+
+console.log("4. Script End");</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>The Execution:</h2>
+        <ul>
+            <li>"1. Script Start" -> Sync code. Runs immediately.</li>
+            <li>setTimeout -> Browser api sees 0ms. Puts callback in Macrotask Queue.</li>
+            <li>Promise -> Resolves. Puts callback in Microtask Queue.</li>
+            <li>"4. Script End" -> Sync code. Runs immediately.</li>
+            <li>Stack is empty. Event Loop looks at Microtasks. Found one!</li>
+            <li>"3. Promise" -> Runs.</li>
+            <li>Microtasks empty. Event Loop looks at Macrotasks. Found one!</li>
+            <li>"2. setTimeout" -> Runs.</li>
+        </ul>
+        <p><strong>Final Output:</strong> 1. Script Start -> 4. Script End -> 3. Promise -> 2. setTimeout</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>Why does this matter?</h2>
+        <p>If you have a heavy loop inside a Microtask (e.g., a massive chain of Promises), the browser will never get
+            to the Callback Queue.</p>
+        <p>This means clicks and UI updates (which are Macrotasks) will be blocked, and the page will freeze.</p>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/7-async-js/async-await" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Async/Await</span>
+        </a>
+        <a href="#/7-async-js/ajax-fetch" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">AJAX & Fetch</span>
+        </a>
+    </nav>
+</article>

@@ -1,0 +1,108 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge async-js">Phase 7</span>
+        <h1>Promises</h1>
+        <p class="topic-description">then, catch, finally, chaining.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Promise</h2>
+        <p>It is an object that represents the eventual completion or failure of an asynchronous operation.</p>
+        <p>A promise can be in one of three states:</p>
+        <ul>
+            <li><strong>1. Pending</strong> - the initial state, the operation is still in progress.</li>
+            <li><strong>2. Fulfilled</strong> - the operation completed successfully.</li>
+            <li><strong>3. Rejected</strong> - the operation failed.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>Syntax - creation</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">create-promise.js</span>
+            </div>
+            <pre><code>const myPromise = new Promise((resolve, reject) => {
+  const success = true;
+
+  setTimeout(() => {
+    if (success) {
+      resolve("Operation Successful!"); // Yay!
+    } else {
+      reject("Operation Failed."); // Nay!
+    }
+  }, 2000);
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Syntax - consumption</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">consume-promise.js</span>
+            </div>
+            <pre><code>console.log("1. Starting...");
+
+myPromise
+  .then((message) => {      // Runs if the promise is Resolved.
+    console.log("2. Success:", message);
+    // You can return a new value to the NEXT .then()
+    return "Next Step Data"; 
+  })
+  .then((data) => {
+    console.log("3. Chaining:", data);
+  })
+  .catch((error) => {         // Runs if the promise is Rejected.
+    console.log("Error:", error);
+  })
+  .finally(() => {           // Runs regardless of success or failure.
+    console.log("4. Cleanup: Loading spinner stopped.");
+  });</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>Fixing callback hell</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">promise-chain.js</span>
+            </div>
+            <pre><code>// callback
+login(function(user) {
+  getUserData(user, function(data) {
+    // ...
+  });
+});
+
+
+// promise
+
+login()
+  .then(user => getUserData(user))
+  .then(data => getArticles(data))
+  .then(articles => console.log(articles))
+  .catch(err => console.log("Something went wrong!"));</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/7-async-js/callbacks" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Callbacks</span>
+        </a>
+        <a href="#/7-async-js/async-await" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Async/Await</span>
+        </a>
+    </nav>
+</article>

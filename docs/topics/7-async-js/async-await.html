@@ -1,0 +1,131 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge async-js">Phase 7</span>
+        <h1>Async/Await</h1>
+        <p class="topic-description">Modern async syntax with try/catch.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Async/Await - introduced in ES2017</h2>
+        <p>It is the current industry standard for writing asynchronous code.</p>
+        <p>It is built on top of Promises but makes your code look and behave like standard synchronous code.</p>
+        <p>It stops the "chaining" madness (.then().then()) and lets you write logic line-by-line.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The async Keyword</h2>
+        <p>Placing async before a function declaration does two things:</p>
+        <ul>
+            <li>1. It allows you to use the await keyword inside.</li>
+            <li>2. It automatically wraps the return value in a Promise.</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">async.js</span>
+            </div>
+            <pre><code>// This function returns a Promise that resolves to "Hello"
+async function greet() {
+  return "Hello"; 
+}
+
+greet().then(console.log); // Output: Hello</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The await Keyword</h2>
+        <p>It can only be used inside an async function.</p>
+        <p>When JavaScript sees await, it pauses the execution of that specific function until the Promise is resolved.
+        </p>
+        <ul>
+            <li>If the Promise resolves, it returns the value.</li>
+            <li>If the Promise rejects, it throws an error.</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">await.js</span>
+            </div>
+            <pre><code>async function getUser() {
+  // 1. Pause here until fetch is done
+  let response = await fetch('https://api.github.com/users/sam'); 
+  
+  // 2. Pause here until JSON conversion is done
+  let data = await response.json(); 
+
+  // 3. Now we have the data!
+  console.log(data);
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Comparison (Promises vs Async/Await)</h2>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">comparison.js</span>
+            </div>
+            <pre><code>// The Old Way - Promises
+
+fetch('url')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+// The New Way - Async/Await
+
+const getData = async () => {
+  const response = await fetch('url');
+  const data = await response.json();
+  console.log(data);
+};
+
+// Notice how there are no callbacks or nesting. It reads top-to-bottom.</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Error Handling - try...catch</h2>
+        <p>Since await pauses execution, we can't use .catch() in the same way.</p>
+        <p>Instead, we use the standard try...catch block, just like in regular synchronous code.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">try-catch.js</span>
+            </div>
+            <pre><code>async function getData() {
+  try {
+    const response = await fetch('https://broken-url.com');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    // If ANY line in the 'try' block fails, we jump here
+    console.error("Something went wrong:", error.message);
+  } finally {
+    console.log("Cleanup complete.");
+  }
+}</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/7-async-js/promises" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Promises</span>
+        </a>
+        <a href="#/7-async-js/event-loop" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Event Loop</span>
+        </a>
+    </nav>
+</article>

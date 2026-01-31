@@ -1,0 +1,83 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge async-js">Phase 7</span>
+        <h1>Callbacks</h1>
+        <p class="topic-description">Functions passed as arguments.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Callback</h2>
+        <p>It is a function that you pass into another function as an argument, to be executed later.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">callback.js</span>
+            </div>
+            <pre><code>function downloadPhoto(url, callback) {
+    console.log(`Downloading from ${url}`);
+
+    // Fake download taking 2 seconds
+    setTimeout(() => {
+        console.log("Download complete!");
+        callback();
+    }, 2000);
+}
+
+downloadPhoto('google.com/cat.jpg', function() {
+    console.log("Now I can edit the photo");
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The problem : sequence</h2>
+        <p>Real apps rarely have just one step. Usually, you need to:</p>
+        <ul>
+            <li>1. Login user.</li>
+            <li>2. Then fetch user ID.</li>
+            <li>3. Then fetch user photos.</li>
+            <li>4. Then fetch comments on the photo.</li>
+        </ul>
+        <p>Since step 2 depends on step 1, you have to nest the functions inside each other.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>Callback Hell</h2>
+        <p>When you nest callbacks inside callbacks inside callbacks, you code starts to look like a sideway pyramid.
+        </p>
+        <p>This is known as Callback Hell.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">callback-hell.js</span>
+            </div>
+            <pre><code>loginUser('sam', (user) => {
+    getUserData(user, (data) => {
+        getArticles(data.id, (articles) => {
+            getComments(articles[0], (comments) => {
+                console.log(comments);
+            });
+        });
+    });
+});</code></pre>
+        </div>
+        <p>This is unreadable, hard to debug and inversion of control (you are handing control of your program to the
+            loginUser function).</p>
+        <p>To solve this Promises was invented.</p>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/7-async-js/sync-vs-async" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Sync vs Async</span>
+        </a>
+        <a href="#/7-async-js/promises" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Promises</span>
+        </a>
+    </nav>
+</article>
