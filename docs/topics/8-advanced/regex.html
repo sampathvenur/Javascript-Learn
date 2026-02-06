@@ -1,0 +1,171 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge advanced">Phase 8</span>
+        <h1>Regex</h1>
+        <p class="topic-description">Regular Expressions for pattern matching.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Regular Expressions (Regex)</h2>
+        <p>Regular Expressions (Regex) are a language within a language.</p>
+        <p>They are patterns used to match character combinations in strings.</p>
+        <p>Think of it as "Super Search." Instead of searching for the exact word "color", you can search for "color OR
+            colour, at the start of a sentence, followed by a number."</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Creating a Regex</h2>
+        <p>In JavaScript, a Regex is wrapped between two forward slashes /.../.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">create-regex.js</span>
+            </div>
+            <pre><code>const pattern = /hello/;</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The Cheat Sheet (Basic Symbols)</h2>
+        <p>Regex uses special characters to define rules.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Meaning</th>
+                    <th>Example</th>
+                    <th>Matches</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>.</td>
+                    <td>Any character</td>
+                    <td>/h.t/</td>
+                    <td>"hat", "hot", "hit"</td>
+                </tr>
+                <tr>
+                    <td>\d</td>
+                    <td>Digit (0-9)</td>
+                    <td>/\d/</td>
+                    <td>"5", "9"</td>
+                </tr>
+                <tr>
+                    <td>\w</td>
+                    <td>Word char (Letter, Number, _ )</td>
+                    <td>/\w/</td>
+                    <td>"a", "Z", "5", "_"</td>
+                </tr>
+                <tr>
+                    <td>\s</td>
+                    <td>Whitespace (Space, Tab)</td>
+                    <td>/\s/</td>
+                    <td>" "</td>
+                </tr>
+                <tr>
+                    <td>^</td>
+                    <td>Start of string</td>
+                    <td>/^Hi/</td>
+                    <td>"Hi there" (Not "Oh Hi")</td>
+                </tr>
+                <tr>
+                    <td>$</td>
+                    <td>End of string</td>
+                    <td>/Bye$/</td>
+                    <td>"Good Bye" (Not "Bye Now")</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Quantifiers (How Many?)</h2>
+        <p>These symbols tell the engine "how many times" the previous character should appear.</p>
+        <ul>
+            <li><strong>+</strong> : One or more (e.g., /Go+d/ matches "God", "Good", "Gooooood").</li>
+            <li><strong>*</strong> : Zero or more (It might not be there at all).</li>
+            <li><strong>?</strong> : Optional (Zero or one). Use this for "color" vs "colour". let regex = /colou?r/;
+                matches both "color" and "colour".</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Character Classes [...]</h2>
+        <p>If you want to match specific characters, put them in brackets.</p>
+        <ul>
+            <li>/[aeiou]/ -> Matches any vowel.</li>
+            <li>/[a-z]/ -> Matches any lowercase letter.</li>
+            <li>/[0-9]/ -> Same as \d.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>5. Using Regex in JavaScript</h2>
+        <p>There are two main methods you will use 99% of the time.</p>
+        <h3>A. test() (Validation)</h3>
+        <p>Returns true or false. Perfect for checking if an input is valid.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">test.js</span>
+            </div>
+            <pre><code>const emailPattern = /@/; // Very simple check
+const input = "sam@gmail.com";
+
+console.log(emailPattern.test(input)); // true</code></pre>
+        </div>
+        <h3>B. replace() (Modification)</h3>
+        <p>Finds the pattern and replaces it.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">replace.js</span>
+            </div>
+            <pre><code>const text = "I hate bugs. Bugs are bad.";
+// The 'g' flag means "Global" (Replace ALL, not just the first one)
+// The 'i' flag means "Case Insensitive" (matches "bugs" and "Bugs")
+const newText = text.replace(/bugs/gi, "features");
+
+console.log(newText); // "I hate features. features are bad."</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>6. Summary Example: Phone Number Validation</h2>
+        <p>Let's validate a simple 10-digit number.</p>
+        <ul>
+            <li>^: Start of line.</li>
+            <li>\d: Digit.</li>
+            <li>{10}: Exactly 10 times.</li>
+            <li>$: End of line.</li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">phone-validation.js</span>
+            </div>
+            <pre><code>const phoneRegex = /^\d{10}$/;
+console.log(phoneRegex.test("1234567890")); // true
+console.log(phoneRegex.test("123-456-7890")); // false (contains hyphens)</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/8-advanced/error-handling" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Error Handling</span>
+        </a>
+        <a href="#/8-advanced/memory-management" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Memory Management</span>
+        </a>
+    </nav>
+</article>

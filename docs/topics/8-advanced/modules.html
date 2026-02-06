@@ -1,0 +1,131 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge advanced">Phase 8</span>
+        <h1>Modules</h1>
+        <p class="topic-description">ES6 Import, Export, and Default.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>ES6 Modules (Import / Export / Default)</h2>
+        <p>As your projects get bigger, writing all your code in one massive `script.js` file becomes a nightmare.</p>
+        <p>Modules allow you to split your code into separate files (e.g., `user.js`, `api.js`, `utils.js`) and share data between them.</p>
+        <p>This is the standard for all modern development (React, Vue, Node.js).</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. Named Exports</h2>
+        <p>Use this when you want to export multiple things from a file (like a toolbox of utility functions).</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">mathUtils.js</span>
+            </div>
+            <pre><code>// You must use the keyword 'export'
+export const pi = 3.14;
+
+export function add(a, b) {
+  return a + b;
+}</code></pre>
+        </div>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">main.js</span>
+            </div>
+            <pre><code>// To import named exports, you MUST use curly braces { }. The names must match exactly.
+
+import { pi, add } from './mathUtils.js';
+
+console.log(add(10, 5)); // 15
+console.log(pi);         // 3.14</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. Default Exports</h2>
+        <p>Use this when a file has one main purpose (e.g., a single Class or a main Component).</p>
+        <p>A file can have only one default export.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">User.js</span>
+            </div>
+            <pre><code>export default class User {
+  constructor(name) {
+    this.name = name;
+  }
+}</code></pre>
+        </div>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">main.js</span>
+            </div>
+            <pre><code>// To import a default export, you do NOT use curly braces. You can also name it whatever you want.
+
+// No braces! Name it whatever (e.g., MyUser)
+import MyUser from './User.js'; 
+
+const u = new MyUser("Sampath");</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Renaming & Importing All</h2>
+        <p>Sometimes names clash, or you just want everything.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">renaming.js</span>
+            </div>
+            <pre><code>// Renaming (as):
+
+import { add as sum } from './mathUtils.js';
+sum(1, 2);
+
+// Import Everything (*):
+// This bundles everything into one object.
+
+import * as MathTools from './mathUtils.js';
+
+console.log(MathTools.pi);
+console.log(MathTools.add(2, 2));</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. The HTML Setup</h2>
+        <p>Browsers don't support modules by default.</p>
+        <p>You must tell the HTML file that you are using them by adding type="module".</p>
+        <div class="code-container" data-language="html">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">index.html</span>
+            </div>
+            <pre><code>&lt;script type="module" src="main.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/7-async-js/ajax-fetch" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">AJAX & Fetch</span>
+        </a>
+        <a href="#/8-advanced/storage" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Storage</span>
+        </a>
+    </nav>
+</article>

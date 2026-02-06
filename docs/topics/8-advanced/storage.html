@@ -1,0 +1,125 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge advanced">Phase 8</span>
+        <h1>Storage</h1>
+        <p class="topic-description">LocalStorage, SessionStorage, Cookies.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Browser Storage (LocalStorage, SessionStorage, Cookies)</h2>
+        <p>Sometimes you need to save data (like a username, a dark mode preference, or a shopping cart) so it doesn't
+            disappear when the user refreshes the page.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. LocalStorage (The Permanent Box)</h2>
+        <p>This is the most common way to store data.</p>
+        <ul>
+            <li><strong>Capacity</strong> : ~5MB (Huge for text).</li>
+            <li><strong>Lifespan</strong> : Forever (until you manually delete it or the user clears browser cache).
+            </li>
+            <li><strong>Scope</strong> : Shared across all tabs/windows of the same website.</li>
+        </ul>
+        <p>The catch: It can only store Strings. You cannot store Objects or Arrays directly.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">localStorage.js</span>
+            </div>
+            <pre><code>// 1. Saving Data (setItem)
+localStorage.setItem('username', 'Sampath');
+
+// 2. Saving Complex Data (Use JSON.stringify!)
+const settings = { theme: 'dark', notifications: true };
+localStorage.setItem('userSettings', JSON.stringify(settings));
+
+// 3. Reading Data (getItem)
+const name = localStorage.getItem('username'); // "Sampath"
+
+// 4. Reading Complex Data (Use JSON.parse!)
+const storedSettings = localStorage.getItem('userSettings');
+const parsedSettings = JSON.parse(storedSettings); 
+console.log(parsedSettings.theme); // "dark"
+
+// 5. Deleting
+localStorage.removeItem('username'); // Delete one
+localStorage.clear(); // Delete EVERYTHING</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. SessionStorage (The Temporary Box)</h2>
+        <p>It works exactly the same as LocalStorage (same code syntax: `setItem`, `getItem`).</p>
+        <ul>
+            <li><strong>The Difference</strong> : It dies when you close the tab.</li>
+            <li><strong>Use Case</strong> : Sensitive data (like banking session details) or temporary form data you
+                don't want persisting after the user leaves.</li>
+        </ul>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Cookies (The Carrier Pigeon)</h2>
+        <p>Cookies are the "Old School" method. They are very different from Storage.</p>
+        <ul>
+            <li><strong>Capacity</strong> : Tiny (4KB).</li>
+            <li><strong>Lifespan</strong> : You set an expiration date.</li>
+            <li><strong>Crucial Feature</strong> : Cookies are automatically sent to the server with every single HTTP
+                Request.</li>
+        </ul>
+        <p>Use Case: Authentication Tokens. When you log in, the server gives you a cookie. Every time you click a link,
+            your browser shows that cookie to the server to prove who you are.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>Summary Comparison</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>LocalStorage</th>
+                    <th>SessionStorage</th>
+                    <th>Cookies</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lifespan</td>
+                    <td>Forever</td>
+                    <td>Until Tab Close</td>
+                    <td>Manually set (Expiry)</td>
+                </tr>
+                <tr>
+                    <td>Capacity</td>
+                    <td>~5MB</td>
+                    <td>~5MB</td>
+                    <td>4KB (Tiny)</td>
+                </tr>
+                <tr>
+                    <td>Server Access</td>
+                    <td>No (Client only)</td>
+                    <td>No (Client only)</td>
+                    <td>Yes (Sent on request)</td>
+                </tr>
+                <tr>
+                    <td>Ease of Use</td>
+                    <td>Easy</td>
+                    <td>Easy</td>
+                    <td>Hard (Messy syntax)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/8-advanced/modules" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Modules</span>
+        </a>
+        <a href="#/8-advanced/error-handling" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Error Handling</span>
+        </a>
+    </nav>
+</article>

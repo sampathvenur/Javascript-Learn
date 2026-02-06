@@ -1,0 +1,140 @@
+<article class="topic-content">
+    <header class="topic-header">
+        <span class="phase-badge advanced">Phase 8</span>
+        <h1>Error Handling</h1>
+        <p class="topic-description">Try...Catch and Custom Errors.</p>
+    </header>
+
+    <section class="topic-section">
+        <h2>Error Handling (Try...Catch & Custom Errors)</h2>
+        <p>In the real world, things break. APIs fail, users enter bad data, and networks drop.</p>
+        <p>If you don't handle errors, your entire Javascript application crashes (stops running).</p>
+        <p>Error handling is how you "catch" the crash and handle it gracefully.</p>
+    </section>
+
+    <section class="topic-section">
+        <h2>1. The Safety Net (try...catch)</h2>
+        <p>Think of this as a safety net for "dangerous" code.</p>
+        <ul>
+            <li><strong>try</strong> : Attempt to run this code.</li>
+            <li><strong>catch</strong> : If the try block fails (throws an error), jump here immediately. Do not crash.
+            </li>
+        </ul>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">try-catch.js</span>
+            </div>
+            <pre><code>try {
+  // Dangerous code (e.g., accessing a variable that doesn't exist)
+  console.log(nonExistentVariable); 
+  
+  console.log("This line will NEVER run because the error happened above");
+
+} catch (error) {
+  // This runs ONLY if there was an error
+  console.log("Something broke!");
+  console.log("Error message:", error.message); 
+}
+
+console.log("The app is still alive and running...");</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>2. The finally Block (Cleanup)</h2>
+        <p>This block runs no matter what. Whether the code succeeded or failed, finally will execute.</p>
+        <p>It is perfect for cleanup tasks, like turning off a "Loading..." spinner.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">finally.js</span>
+            </div>
+            <pre><code>try {
+  showLoadingSpinner();
+  await fetchData(); // Might fail
+} catch (err) {
+  showErrorMessage();
+} finally {
+  hideLoadingSpinner(); // Runs in BOTH cases
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>3. Throwing Errors (Manual Errors)</h2>
+        <p>Sometimes, the code technically works, but the logic is wrong (e.g., transferring more money than you have in
+            your bank account).</p>
+        <p>You can manually throw an error to stop execution and jump to the catch block.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">throw.js</span>
+            </div>
+            <pre><code>function withdrawMoney(amount, balance) {
+  if (amount > balance) {
+    // Stop everything! Throw an error manually.
+    throw new Error("Insufficient Funds"); 
+  }
+  return balance - amount;
+}
+
+try {
+  withdrawMoney(100, 50); // Throws error
+} catch (err) {
+  console.log(err.message); // "Insufficient Funds"
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="topic-section">
+        <h2>4. Custom Errors (Professional Level)</h2>
+        <p>The built-in Error class is generic. In complex apps, you want to distinguish between a "Network Error"
+            (retry later) and a "Validation Error" (user typed wrong info).</p>
+        <p>You can create your own error types by extending the Error class.</p>
+        <div class="code-container" data-language="javascript">
+            <div class="code-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">custom-error.js</span>
+            </div>
+            <pre><code>// Create a specific error for Database issues
+
+class DatabaseError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "DatabaseError"; // Custom name
+  }
+}
+
+try {
+  // Simulate a database failure
+  throw new DatabaseError("Connection lost");
+} catch (err) {
+  if (err.name === "DatabaseError") {
+    console.log("Alert the DevOps team! The DB is down.");
+  } else {
+    console.log("Just a generic error.");
+  }
+}</code></pre>
+        </div>
+    </section>
+
+    <nav class="topic-nav">
+        <a href="#/8-advanced/storage" class="nav-link prev">
+            <span class="nav-link-label">← Previous</span>
+            <span class="nav-link-title">Storage</span>
+        </a>
+        <a href="#/8-advanced/regex" class="nav-link next">
+            <span class="nav-link-label">Next →</span>
+            <span class="nav-link-title">Regex</span>
+        </a>
+    </nav>
+</article>
