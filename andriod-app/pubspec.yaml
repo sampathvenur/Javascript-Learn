@@ -1,0 +1,45 @@
+name: js_notes
+description: "JavaScript Notes - Complete Documentation App"
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Syntax highlighting for code blocks
+  flutter_highlight: ^0.7.0
+  highlight: ^0.7.0
+
+  # Shared preferences for storing app state (like last viewed topic)
+  shared_preferences: ^2.2.2
+
+  # URL launcher for the GitHub link
+  url_launcher: ^6.2.2
+
+  # Google Fonts for better typography
+  google_fonts: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
+
+# App icon configuration
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "#1E1E1E"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/

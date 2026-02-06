@@ -1,0 +1,62 @@
+# Flutter/Dart
+andriod-app/.dart_tool/
+andriod-app/.packages
+andriod-app/.pub-cache/
+andriod-app/.pub/
+andriod-app/build/
+andriod-app/*.iml
+andriod-app/.metadata
+andriod-app/pubspec.lock
+
+# Android
+andriod-app/android/.gradle/
+andriod-app/android/app/debug/
+andriod-app/android/app/profile/
+andriod-app/android/app/release/
+andriod-app/android/local.properties
+andriod-app/android/key.properties
+andriod-app/android/*.jks
+andriod-app/android/*.keystore
+
+# iOS
+andriod-app/ios/Pods/
+andriod-app/ios/.symlinks/
+andriod-app/ios/Flutter/Flutter.framework
+andriod-app/ios/Flutter/Flutter.podspec
+andriod-app/ios/Flutter/Generated.xcconfig
+andriod-app/ios/Flutter/app.flx
+andriod-app/ios/Flutter/app.zip
+andriod-app/ios/Flutter/engine/
+andriod-app/ios/Flutter/flutter_assets/
+andriod-app/ios/ServiceDefinitions.json
+andriod-app/ios/Runner/GeneratedPluginRegistrant.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node modules (if any)
+node_modules/
