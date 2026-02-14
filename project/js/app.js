@@ -1,4 +1,10 @@
-import { category, priorityLevels, appName, PageSize, darkMode } from "./config.js";
+import { category, priorityLevels, appName, pageSize, darkMode } from "./config.js";
+import Task from "./Task.js";
 
-console.log(category);
-console.log(appName);
+const t = new Task('Buy groceries', 'Milk and eggs', 2, 'Personal');
+console.log(t);
+console.log(t.formattedDate);
+t.toggleComplete()
+console.log(t.completed);
+console.log(t.toJSON());
+console.log(`pp: ${t.priority}`);

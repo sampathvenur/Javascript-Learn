@@ -9,6 +9,6 @@ export const priorityLevels = {
 
 export const appName = 'TaskFlow';
 
-export const PageSize = 10;
+export const pageSize = 10;
 
 export const darkMode = false;
